@@ -1,2 +1,3 @@
-# extensions-for-pressbook
+# extensions-for-pressbooks
+
 Extended core functionalities for pressbooks

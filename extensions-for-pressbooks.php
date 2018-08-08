@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name:  Edition Field Extension
+Plugin Name:  Extensions for PressBooks
 Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
-Description:  Small enhancement vor Pressbooks main plugin 
+Description:  Small enhancement for Pressbooks main plugin
 Version:      0.1
 Author:       Daniil Zhitnitskii (My Language Skills)
 Author URI:   https://developer.wordpress.org/
 License:      GPL 3.0
 License URI:  https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain:  edition-extension
+Text Domain:  extensions-for-pressbooks
 Domain Path:  /languages
 */
 
