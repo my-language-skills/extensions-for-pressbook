@@ -1,5 +1,6 @@
 <?php
 /*
+
 Plugin Name:  Extensions for PressBooks
 Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
 Description:  Small enhancement for Pressbooks main plugin
@@ -12,16 +13,9 @@ Text Domain:  extensions-for-pressbooks
 Domain Path:  /languages
 */
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined ("ABSPATH") or die ("No script assholes!");
 
-function add_edition_field(){
+include_once plugin_dir_path( dirname( __FILE__ ) ) . "extensions-for-pressbooks/edition-extension/edition-extension.php";
+include_once plugin_dir_path( dirname( __FILE__ ) ) . "extensions-for-pressbooks/original-mark/original-mark.php";
+include_once plugin_dir_path( dirname( __FILE__ ) ) . "extensions-for-pressbooks/export-extension/export-extension.php";
 
-	x_add_metadata_field( 'pb_edition', 'metadata', array(
-						'group'       => 'general-book-information',
-						'label'       => 'Edition',
-						'description' => 'Book edition',
-						'display_callback' => null
-					) );
-}
-
-add_action ('custom_metadata_manager_init_metadata', 'add_edition_field');

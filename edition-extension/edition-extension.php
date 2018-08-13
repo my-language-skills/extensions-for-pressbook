@@ -1,16 +1,8 @@
 <?php
-/*
-Plugin Name:  Edition Field Extension
-Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
-Description:  Small enhancement vor Pressbooks main plugin 
-Version:      0.1
-Author:       Daniil Zhitnitskii (My Language Skills)
-Author URI:   https://developer.wordpress.org/
-License:      GPL 3.0
-License URI:  https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain:  edition-extension
-Domain Path:  /languages
-*/
+/**
+ *
+ * File responsible for adding edition field in Book Info
+ */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
