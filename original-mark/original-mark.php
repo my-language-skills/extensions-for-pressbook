@@ -5,7 +5,7 @@
  *File responsible for adding option to mark original content
  */
 add_action('admin_enqueue_scripts', 'om_enqueue_scripts');
-add_action('wp_ajax_pressbooks_mark_as_original', 'mark_as_original');
+add_action('wp_ajax_efp_mark_as_original', 'mark_as_original', 1);
 add_filter( 'wpmu_blogs_columns', 'add_original_column' );
 add_action( 'manage_sites_custom_column', 'render_original_column', 1, 3 );
 
@@ -24,9 +24,9 @@ function mark_as_original () {
 	$is_original = $_POST['is_original'];
 
 	if ( $is_original === 'true' ) {
-		update_blog_option( $blog_id, 'pressbooks_publisher_is_original', 1 );
+		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );
 	} else {
-		delete_blog_option( $blog_id, 'pressbooks_publisher_is_original' );
+		delete_blog_option( $blog_id, 'efp__publisher_is_original' );
 	}
 }
 
@@ -37,6 +37,6 @@ function add_original_column ($columns) {
 
 function render_original_column ($column, $blog_id ) {
 	if ( 'is_original' === $column && ! is_main_site( $blog_id ) ) { ?>
-		<input class="is-original" type="checkbox" name="is_original" value="1" aria-label="<?php echo esc_attr_x( 'Mark As Original Content', 'extensions-for-pressbooks' ); ?>" <?php checked( get_blog_option( $blog_id, 'pressbooks_publisher_is_original' ), 1 ); ?> />
+		<input class="is-original" type="checkbox" name="is_original" value="1" aria-label="<?php echo esc_attr_x( 'Mark As Original Content', 'extensions-for-pressbooks' ); ?>" <?php checked( get_blog_option( $blog_id, 'efp_publisher_is_original' ), 1 ); ?> />
 	<?php }
 }
