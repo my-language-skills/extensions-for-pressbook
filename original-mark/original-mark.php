@@ -26,7 +26,7 @@ function mark_as_original () {
 	if ( $is_original === 'true' ) {
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );
 	} else {
-		delete_blog_option( $blog_id, 'efp__publisher_is_original' );
+		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
 	}
 }
 

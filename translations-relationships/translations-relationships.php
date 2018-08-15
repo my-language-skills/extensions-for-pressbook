@@ -6,13 +6,13 @@
  * @author Daniil Zhitnitskii (My Language Skills)
  */
 
-add_action('wp_ajax_efp_mark_as_original', 'update_trans_table', 2);
-add_action('custom_metadata_manager_init_metadata', 'create_language_box', 10);
+add_action('wp_ajax_efp_mark_as_original', 'tre_update_trans_table', 2);
+add_action('custom_metadata_manager_init_metadata', 'tre_create_language_box', 10);
 
 /**
  * Function responsible for creation/updating translations table in database
  */
-function update_trans_table () {
+function tre_update_trans_table () {
 
 	//security check
 	if ( ! current_user_can( 'manage_network' ) || ! check_ajax_referer( 'pressbooks-aldine-admin' ) ) {
@@ -21,23 +21,24 @@ function update_trans_table () {
 
 	global $wpdb;
 
+	$table_name = $wpdb->prefix . 'trans_rel';
+
+	//>> check if the book was marked as translation of another book
+
+	switch_to_blog($_POST['book_id']);
+
+	$info_post_id = tre_get_info_post();
+
+	$trans_lang = get_post_meta($info_post_id, 'efp_trans_language') ?: 'not_set';
+	//<<
+
+	switch_to_blog( 1 );
+
 	//if book was marked as original, not unmarked
 	if (1 == get_blog_option($_POST['book_id'], 'efp_publisher_is_original')){
-		//>> check if the book was marked as translation of another book
-
-		$info_post = $wpdb->get_results("SELECT `ID` FROM $wpdb->posts WHERE `post_type` = 'metadata' LIMIT 1", ARRAY_A);
-
-		$info_post = $info_post[0];
-		$trans_lang = get_post_meta($info_post, 'efp_trans_language');
-		//<<
-
-		//just in case
-		switch_to_blog( 1 );
 
 		//if book was not marked as translation, create a new row in translations table
-		if ($trans_lang == 'non_tr') {
-
-			$table_name = $wpdb->prefix . 'trans_rel';
+		if ($trans_lang == 'non_tr' || $trans_lang == 'not_set') {
 
 			//if translations table doesn't exist, create
 			if ( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
@@ -56,11 +57,40 @@ function update_trans_table () {
 
 			$wpdb->insert( $table_name, [ 'id' => absint( $_POST['book_id'] ) ] );
 
-		} else {
+		} elseif(isset($trans_lang)) {
 			//book is a translation, add it as a translation to original one
 
+			//get translation's language
+			switch_to_blog($_POST['book_id']);
+			$lang = get_post_meta(tre_get_info_post(), 'pb_language', true);
+			$origin = str_replace(['http://', 'https://'], '', get_post_meta(tre_get_info_post(), 'pb_is_based_on', true)).'/';
+
+			//>> Add column if not present.
+			switch_to_blog(1);
+			$check = $wpdb->get_row("SELECT * FROM $table_name;");
+
+			if(!isset($check->$lang)){
+   			 	$wpdb->query("ALTER TABLE $table_name ADD $lang BIGINT(20);");
+			}
+			//<<
+
+			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+			
+			$wpdb->query("UPDATE $table_name SET $lang = '$_POST[book_id]' WHERE `id` = '$origin_id';");
 
 		}
+	} else {
+
+		if ($trans_lang == 'non_tr' || $trans_lang == 'not_set'){
+			$wpdb->query("DELETE FROM $table_name WHERE `id` = $_POST[book_id]");
+		} elseif (isset($trans_lang)) {
+			switch_to_blog($_POST['book_id']);
+			$origin = str_replace(['http://', 'https://'], '', get_post_meta(tre_get_info_post(), 'pb_is_based_on', true)).'/';
+			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+			switch_to_blog(1);
+			$wpdb->query("UPDATE $table_name SET $lang = NULL WHERE `id` = '$origin_id';");
+		}
+
 	}
 }
 
@@ -68,9 +98,10 @@ function update_trans_table () {
 /**
  * Function for producing metabox for selecting translation language
  */
-function create_language_box () {
+function tre_create_language_box () {
+	
+	if (get_post_meta(tre_get_info_post(),'pb_is_based_on')) {
 
-	if (get_option('pb_is_based_on')) {
 		x_add_metadata_group( 'efp_trans', 'metadata', array(
 			'label'    => 'Studying content',
 			'priority' => 'high'
@@ -271,5 +302,17 @@ function create_language_box () {
 			)
 		);
 	}
+}
+
+/**
+ * Function for getting book info post ID
+ */
+function tre_get_info_post () {
+
+	global $wpdb;
+	$info_post = $wpdb->get_results("SELECT `ID` FROM $wpdb->posts WHERE `post_type` = 'metadata' LIMIT 1", ARRAY_A);
+
+	return $info_post[0]['ID'];
+
 }
 
