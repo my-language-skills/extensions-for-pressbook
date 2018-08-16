@@ -62,8 +62,8 @@ function tre_update_trans_table () {
 
 			//get translation's language
 			switch_to_blog($_POST['book_id']);
-			$lang = get_post_meta(tre_get_info_post(), 'pb_language', true);
-			$origin = str_replace(['http://', 'https://'], '', get_post_meta(tre_get_info_post(), 'pb_is_based_on', true)).'/';
+			$lang = get_post_meta($info_post_id, 'pb_language', true);
+			$origin = str_replace(['http://', 'https://'], '', get_post_meta($info_post_id, 'pb_is_based_on', true)).'/';
 
 			//>> Add column if not present.
 			switch_to_blog(1);
@@ -85,10 +85,11 @@ function tre_update_trans_table () {
 			$wpdb->query("DELETE FROM $table_name WHERE `id` = $_POST[book_id]");
 		} elseif (isset($trans_lang)) {
 			switch_to_blog($_POST['book_id']);
-			$origin = str_replace(['http://', 'https://'], '', get_post_meta(tre_get_info_post(), 'pb_is_based_on', true)).'/';
-			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+			$origin = str_replace(['http://', 'https://'], '', get_post_meta($info_post_id, 'pb_is_based_on', true)).'/';
+			$lang = get_post_meta($info_post_id, 'pb_language', true);
 			switch_to_blog(1);
-			$wpdb->query("UPDATE $table_name SET $lang = NULL WHERE `id` = '$origin_id';");
+			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+			$wpdb->query("UPDATE $table_name SET `$lang` = '' WHERE `id` = '$origin_id';");
 		}
 
 	}
