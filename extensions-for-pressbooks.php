@@ -1,8 +1,9 @@
 <?php
 /*
-Plugin Name:  Extensions For Pressbooks
+
+Plugin Name:  Extensions for PressBooks
 Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
-Description:  Additional functionality for Pressbooks plugin
+Description:  Small enhancement for Pressbooks main plugin
 Version:      0.1
 Author:       Daniil Zhitnitskii (My Language Skills)
 Author URI:   https://developer.wordpress.org/
@@ -13,6 +14,7 @@ Domain Path:  /languages
 */
 
 defined ("ABSPATH") or die ("No script assholes!");
+
 
 include_once plugin_dir_path( __FILE__ ) . "edition-extension/edition-extension.php";
 include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
