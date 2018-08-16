@@ -82,7 +82,12 @@ function tre_update_trans_table () {
 	} else {
 
 		if ($trans_lang == 'non_tr' || $trans_lang == 'not_set'){
+			$trans = $wpdb->get_row("SELECT * FROM $table_name WHERE `id` = '$_POST[book_id]';", ARRAY_A);
+			unset($trans['id']);
 			$wpdb->query("DELETE FROM $table_name WHERE `id` = $_POST[book_id]");
+			foreach ($trans as $tran){
+				delete_blog_option($tran, 'efp_publisher_is_original');
+			}
 		} elseif (isset($trans_lang)) {
 			switch_to_blog($_POST['book_id']);
 			$origin = str_replace(['http://', 'https://'], '', get_post_meta($info_post_id, 'pb_is_based_on', true)).'/';
