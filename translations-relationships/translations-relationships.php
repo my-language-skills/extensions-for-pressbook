@@ -47,15 +47,15 @@ function tre_update_trans_table () {
 				$charset_collate = $wpdb->get_charset_collate();
 
 				$sql = "CREATE TABLE $table_name (
-          		id bigint(20) NOT NULL,
-          		UNIQUE KEY id (id)
+          		book_id bigint(20) NOT NULL,
+          		UNIQUE KEY book_id (book_id)
      			) $charset_collate;";
 
 				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 				dbDelta( $sql );
 			}
 
-			$wpdb->insert( $table_name, [ 'id' => absint( $_POST['book_id'] ) ] );
+			$wpdb->insert( $table_name, [ 'book_id' => absint( $_POST['book_id'] ) ] );
 
 		} elseif(isset($trans_lang)) {
 			//book is a translation, add it as a translation to original one
@@ -76,15 +76,15 @@ function tre_update_trans_table () {
 
 			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
 			
-			$wpdb->query("UPDATE $table_name SET $lang = '$_POST[book_id]' WHERE `id` = '$origin_id';");
+			$wpdb->query("UPDATE $table_name SET $lang = '$_POST[book_id]' WHERE `book_id` = '$origin_id';");
 
 		}
 	} else {
 
 		if ($trans_lang == 'non_tr' || $trans_lang == 'not_set'){
-			$trans = $wpdb->get_row("SELECT * FROM $table_name WHERE `id` = '$_POST[book_id]';", ARRAY_A);
-			unset($trans['id']);
-			$wpdb->query("DELETE FROM $table_name WHERE `id` = $_POST[book_id]");
+			$trans = $wpdb->get_row("SELECT * FROM $table_name WHERE `book_id` = '$_POST[book_id]';", ARRAY_A);
+			unset($trans['book_id']);
+			$wpdb->query("DELETE FROM $table_name WHERE `book_id` = $_POST[book_id]");
 			foreach ($trans as $tran){
 				delete_blog_option($tran, 'efp_publisher_is_original');
 			}
@@ -94,7 +94,7 @@ function tre_update_trans_table () {
 			$lang = get_post_meta($info_post_id, 'pb_language', true);
 			switch_to_blog(1);
 			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
-			$wpdb->query("UPDATE $table_name SET `$lang` = '' WHERE `id` = '$origin_id';");
+			$wpdb->query("UPDATE $table_name SET `$lang` = '' WHERE `book_id` = '$origin_id';");
 		}
 
 	}
