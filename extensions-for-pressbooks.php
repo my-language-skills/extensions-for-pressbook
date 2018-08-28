@@ -20,3 +20,4 @@ include_once plugin_dir_path( __FILE__ ) . "edition-extension/edition-extension.
 include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
 include_once plugin_dir_path( __FILE__ ) . "export-extension/export-extension.php";
 include_once plugin_dir_path( __FILE__ ) . "translations-relationships/translations-relationships.php";
+include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
