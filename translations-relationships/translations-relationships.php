@@ -318,7 +318,7 @@ function tre_get_info_post () {
 	global $wpdb;
 	$info_post = $wpdb->get_results("SELECT `ID` FROM $wpdb->posts WHERE `post_type` = 'metadata' LIMIT 1", ARRAY_A);
 
-	return $info_post[0]['ID'];
+	return isset($info_post[0]['ID']) ? $info_post[0]['ID'] : 0;
 
 }
 
