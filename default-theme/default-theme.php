@@ -5,9 +5,9 @@
  */
 
 function exp_set_default_theme () {
-	$def_theme = wp_get_theme('books4languages-child-theme-for-pressbooks');
+	$def_theme = wp_get_theme('books4languages-book-child-theme-for-pressbooks');
 	if ($def_theme->exists()){
-		switch_theme('books4languages-child-theme-for-pressbooks');
+		switch_theme('books4languages-book-child-theme-for-pressbooks');
 	}
 
 }
