@@ -20,7 +20,9 @@ Extended core functionalities for Pressbooks
 
 ## Description
 
-This plugin provides tiny extensions for main functionality of pressbooks. With use of it you can now define Edition of your book in Book Info, also it is possible to mark books of original publisher (for example in case your platform is open for publishing from authors or distributors). The last, but not the least feature, of this plugin is creation connections between original books and their translations (this feature will only work if trnaslations of books are created with cloning tool).
+This plugin provides tiny extensions for main functionality of pressbooks. With use of it you can now define Edition of your book in Book Info, also it is possible to mark books of original publisher (for example in case your platform is open for publishing from authors or distributors). The last, but not the least feature, of this plugin is creation connections between original books and their translations (this feature will only work if trnaslations of books are created with cloning tool of Pressbooks).
+
+As plugin is supposed to be used with our [child theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks), the plugin also will set up this theme for all newly created books if theme is installed and network active.
 
 ## Installation
 
