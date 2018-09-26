@@ -26,7 +26,7 @@ In case you are creating translations of your books, 'Translations relations' ca
 
 For more translations repeat steps from 2 to 5 in the list above.
 
-From database interaction point of view, all these steps make some impcat on table of translations relations. When you mark original book with `Original Mark` table creates new row, responsible for series of the translations. After, when you mark translation as original after all required steps, the id of that book is added in corresponding column in original book row. That's why it is **important** for step 5 be performed strictly after step 2-4, unless you would like to make this cloned book a root for another series. Otherwise, translated book will be accounted as book in original language, which will start new translations series.
+From database interaction point of view, all these steps make some impcat on table of translations relations. When you mark original book with `Original Mark` table creates new row, responsible for series of the translations. After, when you mark translation with `Original Mark` after all required steps, the `id` of that book is added as value in corresponding column in original book row. That's why it is **important** for step 5 to be performed strictly after step 2-4, unless you would like to make this cloned book a root for another series of translations. Otherwise, translated book will be accounted as book in original language, which will start new translations series.
 
 ### Deleting translations
 
