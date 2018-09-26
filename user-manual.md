@@ -4,10 +4,6 @@
 
 This manual gives brief explainations on features of the plugin, which could be useful for developement of your website and for understanding how to recieve desired behaviour of a plugin.
 
-## Edition 
-
-Edition extension simply creates new field in `Book Info` page in `General Book Info` metabox and works in the same way as the other fields in that page.
-
 
 ## Original Mark
 
