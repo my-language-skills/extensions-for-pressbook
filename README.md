@@ -69,6 +69,9 @@ If you need some help with understanding on how plugin works, take a look at [us
 
 ### Changelog
 
+* 1.1
+		* Edition extension removed
+
 * 1.0 Initial release
 
 
