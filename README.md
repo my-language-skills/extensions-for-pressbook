@@ -74,6 +74,9 @@ If you need some help with understanding on how plugin works, take a look at [us
 	* Translations bug #8
 	* Concentration of code #10
 	
+* **ADDITIONS**
+	* Languages names alphabetical organization #8
+	
 * **List of Files revised** 
 	* translations-relationships.php
 	
