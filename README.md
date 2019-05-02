@@ -68,11 +68,13 @@ If you need some help with understanding on how plugin works, take a look at [us
 ### Future
 
 ### Changelog
-#### 1.1
+#### 1.2
 
-* **Bugfixes**
-	* Translations bug #8
+* **ENHANCEMENTS**
 	* Concentration of code #10
+
+* **BUGFIXES**
+	* Translations bug #8
 	
 * **ADDITIONS**
 	* Languages names alphabetical organization #8
