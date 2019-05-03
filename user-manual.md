@@ -43,11 +43,13 @@ If by mistake you have put the wrong language of a book in point 3 of working st
 
 ### Printing links in web-pages
 If you want to printing the links of traduction in web-pages, you just have to copy past this lines.
+`
 <ul class="footer__pressbooks__links__list" style="margin-bottom: 1rem;">
 <?php 
 $blog_id = get_current_blog_id();
 pbc_print_trans_links($blog_id); 
 ?>
 </ul>
-
-In order for the links to be shown in the front-end of a website, use our [theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks). Since some relations will be established, the links will appear in the footer of every web-page of your connected books. **Note!** Do not change permalinks in your translations, otherwise links will lead to non-existing pages in other books. 
+`
+**Note!** Do not change permalinks in your translations, otherwise links will lead to non-existing pages in other books. 
+In order for the links to be shown in the front-end of a website, use our [theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks). Since some relations will be established, the links will appear in the footer of every web-page of your connected books. 
