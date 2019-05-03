@@ -44,7 +44,6 @@ If by mistake you have put the wrong language of a book in point 3 of working st
 ### Printing links in web-pages
 If you want to printing the links of traduction in web-pages, you just have to copy past this lines.
 
-`
 	<ul class="footer__pressbooks__links__list" style="margin-bottom: 1rem;">
 	<?php 
 		$blog_id = get_current_blog_id();
@@ -52,7 +51,6 @@ If you want to printing the links of traduction in web-pages, you just have to c
 	?>
 	</ul>
 	
-`
 
 **Note!** Do not change permalinks in your translations, otherwise links will lead to non-existing pages in other books.
 
