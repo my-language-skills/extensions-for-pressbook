@@ -68,7 +68,7 @@ If you need some help with understanding on how plugin works, take a look at [us
 ### Future
 
 ### Changelog
-#### 1.1
+#### 1.2
 
 
 * **ADDITIONS**
