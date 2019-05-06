@@ -4,8 +4,8 @@
 Plugin Name:  Extensions for PressBooks
 Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
 Description:  Small enhancement for Pressbooks main plugin
-Version:      1.1.1
-Author:       Hugues PAGES (My Language Skills)
+Version:      1.2
+Author:       @huguespages (My Language Skills)
 Author URI:   https://developer.wordpress.org/
 License:      GPL 3.0
 License URI:  https://www.gnu.org/licenses/gpl-3.0.html
