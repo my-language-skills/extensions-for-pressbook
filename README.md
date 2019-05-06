@@ -68,11 +68,22 @@ If you need some help with understanding on how plugin works, take a look at [us
 ### Future
 
 ### Changelog
+#### 1.1
 
-* 1.1
-		* Edition extension removed
+* **Bugfixes**
+	* Translations bug #8
+	* Concentration of code #10
 
-* 1.0 Initial release
+* **ADDITIONS**
+	* Languages names alphabetical organization #8
+
+* **List of Files revised**
+	* translations-relationships.php
+
+#### 1.1
+* Edition extension removed
+
+#### 1.0 Initial release
 
 
 ## Upgrade Notice
