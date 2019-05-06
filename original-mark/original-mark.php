@@ -20,7 +20,7 @@ function mark_as_original () {
 		return;
 	}
 
-	$blog_id = absint( $_POST['book_id'] );
+	$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id 
 	$is_original = $_POST['is_original'];
 
 	if ( $is_original === 'true' ) {

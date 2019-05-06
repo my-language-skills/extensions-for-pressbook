@@ -21,7 +21,7 @@ function tre_update_trans_table () {
 
 	global $wpdb;
 
-	$table_name = $wpdb->prefix . 'trans_rel';
+	$table_name = $wpdb->prefix . 'trans_rel'; //table in database
 
 	//>> check if the book was marked as translation of another book
 
@@ -47,15 +47,15 @@ function tre_update_trans_table () {
 				$charset_collate = $wpdb->get_charset_collate();
 
 				$sql = "CREATE TABLE $table_name (
-          		book_id bigint(20) NOT NULL,
-          		UNIQUE KEY book_id (book_id)
+          		a bigint(20) NOT NULL,
+          		UNIQUE KEY a (a)
      			) $charset_collate;";
 
 				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 				dbDelta( $sql );
 			}
 
-			$wpdb->insert( $table_name, [ 'book_id' => absint( $_POST['book_id'] ) ] );
+			$wpdb->insert( $table_name, [ 'a' => absint( $_POST['book_id'] ) ] );
 
 		} elseif(isset($trans_lang)) {
 			//book is a translation, add it as a translation to original one
@@ -64,27 +64,33 @@ function tre_update_trans_table () {
 			switch_to_blog($_POST['book_id']);
 			$lang = get_post_meta($info_post_id, 'pb_language', true);
 			$origin = str_replace(['http://', 'https://'], '', get_post_meta($info_post_id, 'pb_is_based_on', true)).'/';
+			//The str_replace() function replaces some characters with some other characters in a string.
+			// str_replace(find,replace,string,count)
 
 			//>> Add column if not present.
 			switch_to_blog(1);
 			$check = $wpdb->get_row("SELECT * FROM $table_name;");
+//Isset The isset () function is used to check whether a variable is set or not.
+// If a variable is already unset with unset() function, it will no longer be set.
+//The isset() function return false if testing variable contains a NULL value.
 
+//! $a 	Not (Non) 	TRUE si $a n'est pas TRUE.
 			if(!isset($check->$lang)){
    			 	$wpdb->query("ALTER TABLE $table_name ADD $lang BIGINT(20);");
 			}
 			//<<
 
 			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
-			
-			$wpdb->query("UPDATE $table_name SET $lang = '$_POST[book_id]' WHERE `book_id` = '$origin_id';");
+
+			$wpdb->query("UPDATE $table_name SET $lang = '$_POST[book_id]' WHERE `a` = '$origin_id';");
 
 		}
 	} else {
 
 		if ($trans_lang == 'non_tr' || $trans_lang == 'not_set'){
-			$trans = $wpdb->get_row("SELECT * FROM $table_name WHERE `book_id` = '$_POST[book_id]';", ARRAY_A);
-			unset($trans['book_id']);
-			$wpdb->query("DELETE FROM $table_name WHERE `book_id` = $_POST[book_id]");
+			$trans = $wpdb->get_row("SELECT * FROM $table_name WHERE `a` = '$_POST[book_id]';", ARRAY_A);
+			unset($trans['a']);
+			$wpdb->query("DELETE FROM $table_name WHERE `a` = '$_POST[book_id]'");
 			foreach ($trans as $tran){
 				delete_blog_option($tran, 'efp_publisher_is_original');
 			}
@@ -94,7 +100,7 @@ function tre_update_trans_table () {
 			$lang = get_post_meta($info_post_id, 'pb_language', true);
 			switch_to_blog(1);
 			$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
-			$wpdb->query("UPDATE $table_name SET `$lang` = '' WHERE `book_id` = '$origin_id';");
+			$wpdb->query("UPDATE $table_name SET `$lang` = '' WHERE `a` = '$origin_id';");
 		}
 
 	}
@@ -105,7 +111,7 @@ function tre_update_trans_table () {
  * Function for producing metabox for selecting translation language
  */
 function tre_create_language_box () {
-	
+
 	if (get_post_meta(tre_get_info_post(),'pb_is_based_on')) {
 
 		x_add_metadata_group( 'efp_trans', 'metadata', array(
@@ -118,186 +124,6 @@ function tre_create_language_box () {
 				'field_type'       => 'select',
 				'values'           => [
 					'non_tr' => 'Not translation',
-					'ab'     => 'Abkhazian',
-					'aa'     => 'Afar',
-					'af'     => 'Afrikaans',
-					'ak'     => 'Akan',
-					'sq'     => 'Albanian',
-					'am'     => 'Amharic',
-					'ar'     => 'Arabic',
-					'an'     => 'Aragonese',
-					'hy'     => 'Armenian',
-					'as'     => 'Assamese',
-					'av'     => 'Avaric',
-					'ae'     => 'Avestan',
-					'ay'     => 'Aymara',
-					'az'     => 'Azerbaijani',
-					'bm'     => 'Bambara',
-					'ba'     => 'Bashkir',
-					'eu'     => 'Basque',
-					'be'     => 'Belarusian',
-					'bn'     => 'Bengali',
-					'bh'     => 'Bihari languages',
-					'bi'     => 'Bislama',
-					'nb'     => 'Bokmål, Norwegian; Norwegian Bokmål',
-					'bs'     => 'Bosnian',
-					'br'     => 'Breton',
-					'bg'     => 'Bulgarian',
-					'my'     => 'Burmese',
-					'km'     => 'Central Khmer',
-					'ch'     => 'Chamorro',
-					'ce'     => 'Chechen',
-					'ny'     => 'Chichewa; Chewa; Nyanja',
-					'zh'     => 'Chinese',
-					'cv'     => 'Chuvash',
-					'kw'     => 'Cornish',
-					'co'     => 'Corsican',
-					'cr'     => 'Cree',
-					'hr'     => 'Croatian',
-					'cs'     => 'Czech',
-					'da'     => 'Danish',
-					'nl'     => 'Dutch; Flemish',
-					'dz'     => 'Dzongkha',
-					'en'     => 'English',
-					'eo'     => 'Esperanto',
-					'et'     => 'Estonian',
-					'ee'     => 'Ewe',
-					'fo'     => 'Faroese',
-					'fj'     => 'Fijian',
-					'fi'     => 'Finnish',
-					'fr'     => 'French',
-					'ff'     => 'Fulah',
-					'gd'     => 'Gaelic',
-					'gl'     => 'Galician',
-					'lg'     => 'Ganda',
-					'ka'     => 'Georgian',
-					'de'     => 'German',
-					'el'     => 'Greek',
-					'gn'     => 'Guarani',
-					'gu'     => 'Gujarati',
-					'ht'     => 'Haitian',
-					'ha'     => 'Hausa',
-					'he'     => 'Hebrew',
-					'hz'     => 'Herero',
-					'hi'     => 'Hindi',
-					'ho'     => 'Hiri Motu',
-					'hu'     => 'Hungarian',
-					'is'     => 'Icelandic',
-					'io'     => 'Ido',
-					'ig'     => 'Igbo',
-					'id'     => 'Indonesian',
-					'iu'     => 'Inuktitut',
-					'ik'     => 'Inupiaq',
-					'ga'     => 'Irish',
-					'it'     => 'Italian',
-					'ja'     => 'Japanese',
-					'jv'     => 'Javanese',
-					'kl'     => 'Kalaallisut; Greenlandic',
-					'kn'     => 'Kannada',
-					'kr'     => 'Kanuri',
-					'ks'     => 'Kashmiri',
-					'kk'     => 'Kazakh',
-					'ki'     => 'Kikuyu; Gikuyu',
-					'rw'     => 'Kinyarwanda',
-					'ky'     => 'Kirghiz; Kyrgyz',
-					'kv'     => 'Komi',
-					'kg'     => 'Kongo',
-					'ko'     => 'Korean',
-					'kj'     => 'Kuanyama; Kwanyama',
-					'ku'     => 'Kurdish',
-					'lo'     => 'Lao',
-					'la'     => 'Latin',
-					'lv'     => 'Latvian',
-					'li'     => 'Limburgan; Limburger; Limburgish',
-					'ln'     => 'Lingala',
-					'lt'     => 'Lithuanian',
-					'lu'     => 'Luba-Katanga',
-					'lb'     => 'Luxembourgish; Letzeburgesch',
-					'mk'     => 'Macedonian',
-					'mg'     => 'Malagasy',
-					'ms'     => 'Malay',
-					'ml'     => 'Malayalam',
-					'dv'     => 'Maldivian',
-					'mt'     => 'Maltese',
-					'gv'     => 'Manx',
-					'mi'     => 'Maori',
-					'mr'     => 'Marathi',
-					'mh'     => 'Marshallese',
-					'mn'     => 'Mongolian',
-					'na'     => 'Nauru',
-					'nv'     => 'Navajo; Navaho',
-					'nd'     => 'Ndebele, North; North Ndebele',
-					'nr'     => 'Ndebele, South; South Ndebele',
-					'ng'     => 'Ndonga',
-					'ne'     => 'Nepali',
-					'no'     => 'Norwegian',
-					'nn'     => 'Norwegian Nynorsk; Nynorsk, Norwegian',
-					'oc'     => 'Occitan; Provençal',
-					'oj'     => 'Ojibwa',
-					'or'     => 'Oriya',
-					'om'     => 'Oromo',
-					'os'     => 'Ossetian; Ossetic',
-					'pi'     => 'Pali',
-					'pa'     => 'Panjabi; Punjabi',
-					'fa'     => 'Persian',
-					'pl'     => 'Polish',
-					'pt'     => 'Portuguese',
-					'ps'     => 'Pushto; Pashto',
-					'qu'     => 'Quechua',
-					'ro'     => 'Romanian; Moldavian; Moldovan',
-					'rm'     => 'Romansh',
-					'rn'     => 'Rundi',
-					'ru'     => 'Russian',
-					'sn'     => 'Shona',
-					'sm'     => 'Samoan',
-					'sg'     => 'Sango',
-					'sa'     => 'Sanskrit',
-					'sc'     => 'Sardinian',
-					'sr'     => 'Serbian',
-					'ii'     => 'Sichuan Yi',
-					'sd'     => 'Sindhi',
-					'si'     => 'Sinhala; Sinhalese',
-					'sk'     => 'Slovak',
-					'sl'     => 'Slovenian',
-					'so'     => 'Somali',
-					'st'     => 'Sotho, Southern',
-					'es'     => 'Spanish',
-					'su'     => 'Sundanese',
-					'sw'     => 'Swahili',
-					'ss'     => 'Swati',
-					'sv'     => 'Swedish',
-					'tl'     => 'Tagalog',
-					'tg'     => 'Tajik',
-					'ty'     => 'Tahitian',
-					'ta'     => 'Tamil',
-					'tt'     => 'Tatar',
-					'te'     => 'Telugu',
-					'th'     => 'Thai',
-					'bo'     => 'Tibetan',
-					'ti'     => 'Tigrinya',
-					'to'     => 'Tonga',
-					'tn'     => 'Tswana',
-					'tr'     => 'Turkish',
-					'tk'     => 'Turkmen',
-					'tw'     => 'Twi',
-					'ug'     => 'Uighur; Uyghur',
-					'ur'     => 'Urdu',
-					'uk'     => 'Ukrainian',
-					'uz'     => 'Uzbek',
-					'vl'     => 'Valencian',
-					've'     => 'Venda',
-					'vi'     => 'Vietnamese',
-					'vo'     => 'Volapük',
-					'wa'     => 'Walloon',
-					'cy'     => 'Welsh',
-					'fy'     => 'Western Frisian',
-					'wo'     => 'Wolof',
-					'xh'     => 'Xhosa',
-					'yi'     => 'Yiddish',
-					'yo'     => 'Yoruba',
-					'za'     => 'Zhuang; Chuang',
-					'zu'     => 'Zulu'
-					/* code organization (before language organization)				
 					'aa'     => 'Afar',
 					'ab'     => 'Abkhazian',
 					'ae'     => 'Avestan',
@@ -481,7 +307,6 @@ function tre_create_language_box () {
 					'za'     => 'Zhuang; Chuang',
 					'zh'     => 'Chinese',
 					'zu'     => 'Zulu'
-					*/
 				],
 				'label'            => 'Language',
 				'description'      => 'Choose language, which original book is about (if current book is original, choose "Not translation option")',
@@ -503,3 +328,99 @@ function tre_get_info_post () {
 
 }
 
+/**
+ * Function to check if there are translations for this book
+ */
+function pbc_check_trans($blog_id) {
+	global $wpdb;
+ 	global $wp;
+
+ 	//>> identify if book is translation or not and get the source book ID
+ 	switch_to_blog($blog_id);
+ 	$trans_lang = get_post_meta(tre_get_info_post(), 'efp_trans_language') ?: 'not_set';
+ 	$source = get_post_meta(tre_get_info_post(), 'pb_is_based_on', true) ?: 'original';
+ 	if ($source == 'original'){
+ 		$origin_id = $blog_id; // origin id is the id for the original book
+ 	} else {
+ 		$origin = str_replace(['http://', 'https://'], '', $source).'/';
+		switch_to_blog(1);
+		$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+	}
+	//<<
+	//fetching all related translations
+ 	switch_to_blog(1);
+ 	$relations = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}trans_rel WHERE `a` = '$origin_id'", ARRAY_A);
+ 	restore_current_blog();
+ 	if (!empty($relations)){
+ 		return true;
+ 	} else {
+ 		return false;
+ 	}
+}
+
+/**
+ * Function for printing links to translations
+ */
+ function pbc_print_trans_links($blog_id){
+
+ 	global $wpdb;
+ 	global $wp;
+
+ 	//>> identify if book is translation or not and get the source book ID
+ 	switch_to_blog($blog_id);
+ 	$trans_lang = get_post_meta(tre_get_info_post(), 'efp_trans_language') ?: 'not_set';
+ 	$source = get_post_meta(tre_get_info_post(), 'pb_is_based_on', true) ?: 'original';
+ 	if ($source == 'original'){
+ 		$origin_id = $blog_id;
+ 	} else {
+ 		$origin = str_replace(['http://', 'https://'], '', $source).'/';
+		switch_to_blog(1);
+		$origin_id = $wpdb->get_results("SELECT `blog_id` FROM $wpdb->blogs WHERE CONCAT(`domain`, `path`) = '$origin'", ARRAY_A)[0]['blog_id'];
+		restore_current_blog();
+
+	}
+	//<<
+	//fetching all related translations
+ 	switch_to_blog(1);
+// SELECT column_name FROM information_schema.columns WHERE table_name = 'pb_int_wp_trans_rel' AND table_schema='colomet_pb_int' ORDER BY column_name ASC
+// SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME LIKE 'pb_int_wp_trans_rel' ORDER BY column_name ASC
+ 	$relations = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}trans_rel WHERE `a` = '$origin_id'", ARRAY_A);
+ 	restore_current_blog(); //Contrary to the function's name, this does NOT restore the original blog but the previous blog. Calling `switch_to_blog()` twice in a row and then calling this function will result in being on the blog set by the first `switch_to_blog()` call.
+ 	//if book is orginal, unset 'id' property, as no need to point itself
+ 	if($source == 'original'){
+ 		unset($relations['a']);
+ 	}
+
+ 	$current_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+ 	$flag = 0;
+ 	if(!empty($relations)){
+   $languageArrayObject = new ArrayObject($relations);
+   $languageArrayObject->ksort();
+
+ 		foreach ($languageArrayObject as $lang => $id) {
+ 			$separator = $flag ? '|' : '';
+ 			if ($id == $blog_id || $id == 0){
+ 				continue;
+ 			} elseif ($lang == 'a'){
+ 				echo '<li><a href="'.$source.'/'.add_query_arg( array(), $wp->request ).'">'.__('Original Language', 'pressbooks-book').'</a></li>';
+ 				$flag = 1;
+ 				continue;
+ 			}
+
+ 			echo '<li>'.$separator.' <a href="'.str_replace(get_blog_details(get_current_blog_id())->path, get_blog_details($id)->path, $current_link).'">'.$lang.'</a> </li>';
+			//transform the language code into flag picture but you have to comment the line before this
+			//echo '<li>'.$separator.' <a href="'.str_replace(get_blog_details(get_current_blog_id())->path, get_blog_details($id)->path, $current_link).'"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)"  width="16" height="11" src="/wp-content/plugins/extensions-for-pressbooks/flag-icon/'.$lang.'.png" </a> </li>';
+
+ 			$flag = 1;
+ 		}
+ 	}
+ 	if ($source != 'original' && ($trans_lang == 'not_set' || $trans_lang == 'non_tr')){
+ 		echo '<li><a href="'.$source.'/'.add_query_arg( array(), $wp->request ).'">'.__('Original Book', 'pressbooks-book').'</a></li>';
+ 	}
+	//unknown bug fix
+	restore_current_blog();
+ }
+
+ ?>
+
+ <?php

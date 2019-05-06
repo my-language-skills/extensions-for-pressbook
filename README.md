@@ -1,6 +1,6 @@
 # Extensions for PressBooks
 
-Contributors: @colomet, @danzhik
+Contributors:  @danzhik, @hugues
 
 Donate link: https://opencollective.com/mylanguageskills
 
@@ -68,24 +68,11 @@ If you need some help with understanding on how plugin works, take a look at [us
 ### Future
 
 ### Changelog
-#### 1.2
 
-* **ENHANCEMENTS**
-	* Concentration of code #10
+* 1.1
+		* Edition extension removed
 
-* **BUGFIXES**
-	* Translations bug #8
-	
-* **ADDITIONS**
-	* Languages names alphabetical organization #8
-	
-* **List of Files revised** 
-	* translations-relationships.php
-	
-#### 1.1
-* Edition extension removed
-
-#### 1.0 Initial release
+* 1.0 Initial release
 
 
 ## Upgrade Notice
