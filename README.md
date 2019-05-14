@@ -69,19 +69,7 @@ If you need some help with understanding on how plugin works, take a look at [us
 
 ### Changelog
 #### 1.2
-
-
-* **ADDITIONS**
-	* Languages names alphabetical organization #8
-	
-	
-* **ENHANCEMENTS**
-	* translations-relationships.php
-
-
-* **BUGFIXES**
-	* Translations bug #8
-	* Concentration of code #10
+* Edition extension translations removed
 
 
 #### 1.1
