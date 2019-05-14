@@ -6,6 +6,11 @@ plugins/extensions-for-pressbooks/                                              
 ├── doc/                                                                        # → Default doc folder
 ├── media/                                                                      # → Default doc folder
 │   └── automatically-set-the-wordpress-image-title-alt-text-other-meta.php     # → Automatically set the wordpress image title alt text other meta
+├── original-mark/                                                              # → Original mark folder
+│   └── assets/                                                                 # → Assets folder
+│       └── original-mark.php                                                   # → Original mark php
+│       └── scripts/                                                            # → Script folder
+│           └── original-mark-admin.js                                          # → Original mark script
 ├── vendor/                                                                     # → Vendor folder
 │   └── plugin-update-checker/                                                  # → Update plugin with Admin panel (gitub)                                      
 ├── wp-assets/                                                                  # → Images folder

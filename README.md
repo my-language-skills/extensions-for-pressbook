@@ -53,8 +53,10 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 ### Now
 ## 0.xx
-* **ADDITIONS**
-   Add new functions in media to automatically set the wordpress image title alt text other meta
+* **ADDITIONS***
+   * Add new functions in media to automatically set the wordpress image title alt text other meta
+   * Add new functions in to originall mark, for see checkbox
+
 * **ENHANCEMENTS**
 
 * **List of Files revised**
@@ -69,11 +71,12 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 ### Changelog
 #### 1.2
-* Edition extension translations removed
+* **REMOVED**
+   * Edition extension translations removed
 
 
 #### 1.1
-* Edition extension removed
+ * Edition extension removed
 
 #### 1.0 Initial release
 
