@@ -24,7 +24,7 @@ include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
 /*
 * Auto update from github
 *
-* @since 4.6
+* @since 1.2
 */
 require 'vendor/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
