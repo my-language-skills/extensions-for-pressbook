@@ -48,7 +48,7 @@ The Extensiosn For Pressbooks plugin is supplied "as is" and all use is at your 
 
 ## Instructions
 
-If you need some help with understanding on how plugin works, take a look at [user manual](/user-manual.md).
+If you need some help with understanding on how plugin was structured, take a look at [folder structure](/doc/folder-structure.md).
 
 
 ### Now
