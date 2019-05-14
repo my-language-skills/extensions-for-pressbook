@@ -16,6 +16,19 @@ Domain Path:  /languages
 defined ("ABSPATH") or die ("No script assholes!");
 
 
-include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
-include_once plugin_dir_path( __FILE__ ) . "translations-relationships/translations-relationships.php";
 include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
+
+
+
+
+/*
+* Auto update from github
+*
+* @since 4.6
+*/
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/my-language-skills/extensions-for-pressbooks/',
+    __FILE__,
+    'extensions-for-pressbooks'
+);
