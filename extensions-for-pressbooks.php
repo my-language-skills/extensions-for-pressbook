@@ -17,6 +17,7 @@ defined ("ABSPATH") or die ("No script assholes!");
 
 
 include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
+include_once plugin_dir_path( __FILE__ ) . "media/automatically-set-the-wordpress-image-title-alt-text-other-meta.php";
 
 
 

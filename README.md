@@ -54,7 +54,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Now
 ## 0.xx
 * **ADDITIONS**
-
+   Add new functions in media to automatically set the wordpress image title alt text other meta
 * **ENHANCEMENTS**
 
 * **List of Files revised**
