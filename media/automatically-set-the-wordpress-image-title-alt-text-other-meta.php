@@ -1,3 +1,4 @@
+<?php
 /* Automatically set the image Title, Alt-Text, Caption & Description upon upload
 http://brutalbusiness.com/automatically-set-the-wordpress-image-title-alt-text-other-meta/
 for adding the tags and categories: https://wordpress.org/plugins/seo-image/
