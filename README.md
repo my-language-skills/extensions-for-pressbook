@@ -6,9 +6,9 @@ Donate link: https://opencollective.com/mylanguageskills
 
 Tags: wordpress, multisite, pressbooks
 
-Tested up to: [![WordPress](https://img.shields.io/wordpress/v/akismet.svg)](https://wordpress.org/download/)
+Tested up to: WP 5.2
 
-Requires:  [![Pressbooks](https://img.shields.io/badge/Pressbooks-V%205.4.7-red.svg)](https://github.com/pressbooks/pressbooks/releases/tag/5.3)
+Requires:  Pressbooks 5.8
 
 Stable tag: [![Current Release](https://img.shields.io/github/release/my-language-skills/extensions-for-pressbooks.svg)](https://github.com/my-language-skills/extensions-for-pressbooks/releases/latest/)
 
@@ -37,8 +37,9 @@ For upgrades, download the las stable version from github, delete from FTP the o
 
 Extensions For Pressbooks plugin works with:
 
- * ![PHP](https://img.shields.io/badge/PHP-7.2.X-blue.svg)
- * [![Pressbooks](https://img.shields.io/badge/Pressbooks-V%205.4.7-red.svg)](https://github.com/pressbooks/pressbooks/releases/tag/5.4.7)
+ * PHP 7.2
+ * Pressbooks 5.8
+
 
  Lower versions are not supported.
 
@@ -53,13 +54,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 ### Now
 ## 0.xx
-* **ADDITIONS***
-   * Add new functions in media to automatically set the wordpress image title alt text other meta
-   * Add new functions in to originall mark, for see checkbox
 
-* **ENHANCEMENTS**
-
-* **List of Files revised**
 
 
 ### Soon
@@ -70,6 +65,13 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+#### 1.2.1
+* **ADDITIONS***
+   * Add new functions in media to automatically set the wordpress image title alt text other meta
+   * Add new functions in to originall mark, for see checkbox
+
+
+
 #### 1.2
 * **REMOVED**
    * Edition extension translations removed
