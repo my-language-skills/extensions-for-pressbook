@@ -4,6 +4,7 @@
 * Donate link: https://opencollective.com/mylanguageskills
 * Tags: wordpress, multisite, pressbooks
 * Tested up to: WP 5.2.2
+* Stable tag: 1.2.2
 * Requires:  Pressbooks 5.8
 * Stable tag: [![Current Release](https://img.shields.io/github/release/my-language-skills/extensions-for-pressbooks.svg)](https://github.com/my-language-skills/extensions-for-pressbooks/releases/latest/)
 * License:  [![License](https://img.shields.io/badge/license-GPL--3.0-red.svg)](https://github.com/my-language-skills/all-in-one-metadata/blob/master/LICENSE.txt)
@@ -59,11 +60,11 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 ### Changelog
 #### 1.2.2
-* **REMOVED***
+* **REMOVED**
    * Automatically set the wordpress image title alt text other meta transfered to **feature images for Pressbooks**.
 
 #### 1.2.1
-* **ADDITIONS***
+* **ADDITIONS**
    * Add new functions in media to automatically set the wordpress image title alt text other meta
    * Add new functions in to originall mark, for see checkbox
 
