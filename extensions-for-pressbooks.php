@@ -23,6 +23,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       extensions-for-pressbooks
  * Domain Path:       /languages
+ * Network: 					True
  */
 
 

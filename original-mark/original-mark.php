@@ -1,18 +1,43 @@
 <?php
 
 /**
+ * Original Mark
  *
- *File responsible for adding option to mark original content
+ * Sites can be mark and later to receive special treatment (as to receive an original site sibon).
+ *
+ * @link URL
+ *
+ * @package extensions-for-pressbooks
+ * @subpackage Functionality/Original mark
+ * @since x.x.x (when the file was introduced)
+ */
+
+
+/**
+ * File responsible for adding option to mark original content
  */
 add_action('admin_enqueue_scripts', 'om_enqueue_scripts');
 add_action('wp_ajax_efp_mark_as_original', 'mark_as_original', 1);
 add_filter( 'wpmu_blogs_columns', 'add_original_column' );
 add_action( 'manage_sites_custom_column', 'render_original_column', 1, 3 );
 
+/**
+ * Summary.
+ *
+ * @since
+ *
+ */
 
 function om_enqueue_scripts () {
 	wp_enqueue_script( 'original-mark-script', plugin_dir_url( __FILE__ ).'assets/scripts/original-mark-admin.js');
 }
+
+/**
+ * Summary.
+ *
+ * @since
+ *
+ */
 
 function mark_as_original () {
 
@@ -20,7 +45,7 @@ function mark_as_original () {
 		return;
 	}
 
-	$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id 
+	$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id
 	$is_original = $_POST['is_original'];
 
 	if ( $is_original === 'true' ) {
@@ -30,10 +55,24 @@ function mark_as_original () {
 	}
 }
 
+/**
+ * Summary.
+ *
+ * @since
+ *
+ */
+
 function add_original_column ($columns) {
 	$columns['is_original'] = __( 'Featured Book', 'extensions-for-pressbooks' );
 	return $columns;
 }
+
+/**
+ * Summary.
+ *
+ * @since
+ *
+ */
 
 function render_original_column ($column, $blog_id ) {
 	if ( 'is_original' === $column && ! is_main_site( $blog_id ) ) { ?>

@@ -1,7 +1,22 @@
 <?php
 
 /**
- * Forcing new websites to use books4languages-child-theme-for-pressbooks
+ * Default theme
+ *
+ * New websites will use a selected default theme.
+ *
+ * @link URL
+ *
+ * @package extensions-for-pressbooks
+ * @subpackage Functionality/Defatult theme
+ * @since x.x.x (when the file was introduced)
+ */
+
+/**
+ * Force new websites to use books4languages-child-theme-for-pressbooks
+ *
+ * @since
+ *
  */
 
 function exp_set_default_theme () {
