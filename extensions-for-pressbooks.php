@@ -16,7 +16,7 @@
  * Plugin Name:       Extensions for PressBooks
  * Plugin URI:        https://github.com/my-language-skills/extensions-for-pressbooks
  * Description:       Small enhancement for Pressbooks main plugin
- * Version:           1.2.3
+ * Version:           1.2.4
  * Author:            My Language Skills team
  * Author URI:        https://github.com/my-language-skills/
  * License:           GPL 3.0
@@ -34,3 +34,9 @@ defined ("ABSPATH") or die ("No script assholes!");
 
 include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
 include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
+include_once plugin_dir_path( __FILE__ ) . "admin/efp-theme-customizations.php";
+
+//loading network settings only for multisite installation
+if (is_multisite()){
+	include_once plugin_dir_path( __FILE__ ) . "network-admin/efp-network-admin.php";
+}
