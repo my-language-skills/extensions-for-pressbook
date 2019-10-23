@@ -56,6 +56,16 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+#### 1.2.5
+* **ADDITIONS**
+   * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).
+   * Metabox in post edit which contains input field where we can add new pb_is_based_on URL for currently opened post.
+
+* **LIST OF FILE REVISED**
+   * ADDED post-metabox-pb_is_based_on.php
+   * ADDED efp-admin-settings
+   * extensions-for-pressbooks.php
+
 #### 1.2.4
 * **ADDITIONS**
    *  Functionality (platform) of a blank settings pages (network and also book level) where other plugins are able to place their own settings.
@@ -71,9 +81,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 #### 1.2.1
 * **ADDITIONS**
    * Add new functions in media to automatically set the wordpress image title alt text other meta
-   * Add new functions in to originall mark, for see checkbox
-
-
+   * Add new functions in to original mark, for see checkbox
 
 #### 1.2
 * **REMOVED**
