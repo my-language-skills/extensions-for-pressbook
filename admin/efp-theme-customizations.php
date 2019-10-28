@@ -28,7 +28,7 @@ add_action("admin_menu", "add_theme_menu_item");
 /**
  * Render theme_option_page.
  *
- * @since 1.2.4
+ * @since 1.2.4 MODIFIED 1.2.5
  *
  */
  function render_theme_option_page() {
@@ -45,7 +45,14 @@ add_action("admin_menu", "add_theme_menu_item");
   settings_fields("theme-customizations-grp");
 
  	submit_button();
- ?>
+?>
+  <div class="wrap">
+    <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']) { ?>
+    <div class="notice notice-success is-dismissible">
+  <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
+</div>
+<?php } ?>
+
  			</form>
  </div>
  <?php }

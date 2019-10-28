@@ -16,9 +16,7 @@ defined ("ABSPATH") or die ("Action denied!");
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
-		if (is_plugin_active('extensions-for-pressbooks/extensions-for-pressbooks.php')) {
 			add_action('admin_init','efp_init_settings_section');
-    }
   }
 
 function efp_init_settings_section (){

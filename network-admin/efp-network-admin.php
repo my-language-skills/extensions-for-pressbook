@@ -29,7 +29,7 @@ add_action( 'network_admin_menu', 'efp_add_network_settings');
 /**
  * Render page sections.
  *
- * @since 1.2.4
+ * @since 1.2.4 MODIFIED 1.2.5
  *
  */
  function efp_render_network_settings() {
@@ -37,17 +37,25 @@ add_action( 'network_admin_menu', 'efp_add_network_settings');
    <div class="wrap">
        <h1>Extensions for Pressbooks network settings</h1>
 
+       <div class="wrap">
+         <?php if (isset($_GET['setting-updated']) && $_GET['setting-updated']) { ?>
+         <div class="notice notice-success is-dismissible">
+            <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
+          </div>
+          <?php }  ?>
+       </div>
+
        <form method="post" action="edit.php?action=efp-update">
          <?php
           wp_nonce_field( 'efp-network-validate' );
 
-            // Display TRANSLATIONS section on the page
-           do_settings_sections("tfp-network-settings-page");
+          // Display TRANSLATIONS section on the page
+          do_settings_sections("tfp-network-settings-page");
 
-           submit_button();
-         ?>
+          submit_button();
+          ?>
        </form>
- </div>
+    </div>
  <?php }
 
 add_action( 'network_admin_edit_efp-update', 'efp_save_settings');

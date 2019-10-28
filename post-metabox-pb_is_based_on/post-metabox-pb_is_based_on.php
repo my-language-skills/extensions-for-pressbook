@@ -56,9 +56,9 @@ function efp_render_pbibo_metabox(){
 
     // compare URLs of pb_is_based_on meta_key AND site URL
     if ($site_url_parse_host == $pbibo_url_parse_host){
-      $url_to_print = $pbibo_url_parse_path;                       // If they are the same, print only URL path
+      $url_to_print = $pbibo_url_parse_path;                    // If they are the same, print only URL path
     } else {
-      $url_to_print = $pbibo_url;                                  // If not, print full URL
+      $url_to_print = $pbibo_url;                               // If not, print full URL
     }
 
     // generate HTML do be printed inside the metabox
