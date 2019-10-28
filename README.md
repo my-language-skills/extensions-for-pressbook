@@ -3,11 +3,10 @@
 * Contributors:  @danzhik, @huguespages, @!ndeed
 * Donate link: https://opencollective.com/mylanguageskills
 * Tags: wordpress, multisite, pressbooks
-* Tested up to: WP 5.2.2
+* Tested up to: WP 5.2.4
+* Tested UP:  Pressbooks 5.9.5
 * Stable tag: 1.2.5
-* Requires:  Pressbooks 5.8
-* Stable tag: [![Current Release](https://img.shields.io/github/release/my-language-skills/extensions-for-pressbooks.svg)](https://github.com/my-language-skills/extensions-for-pressbooks/releases/latest/)
-* License:  [![License](https://img.shields.io/badge/license-GPL--3.0-red.svg)](https://github.com/my-language-skills/all-in-one-metadata/blob/master/LICENSE.txt)
+* License:  GPL 3.0
 * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
 Extended core functionalities for Pressbooks
@@ -60,6 +59,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 * **ADDITIONS**
    * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).
    * Metabox in post edit which contains input field where we can add new pb_is_based_on URL for currently opened post.
+   * 'Settings saved' information bar have been added to inform user settings have been updated sucessfully.
 
 * **LIST OF FILE REVISED**
    * ADDED post-metabox-pb_is_based_on.php
