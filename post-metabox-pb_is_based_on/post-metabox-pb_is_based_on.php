@@ -66,7 +66,7 @@ function efp_render_pbibo_metabox(){
     $html .= '<b>Current URL:</b>';
     $html .= '<p style="word-wrap:break-word;">'. $url_to_print .'</p><hr>' ;
     $html .= '<b>Insert new URL:</b>';
-    $html .= '<input name="pb_is_based_on" id="efp_pbibo_metabox" type="url"  placeholder="example.com" size="30" />';
+    $html .= '<input name="pb_is_based_on" id="efp_pbibo_metabox" type="url"  placeholder="example.com" size="25" />';
     echo $html;
 }
 
