@@ -15,13 +15,30 @@ Extended core functionalities for Pressbooks
 
 This plugin provides tiny extensions for main functionality of pressbooks.
 
-With use of it you can now define Edition of your book in Book Info, also it is possible to mark books of original publisher (for example in case your platform is open for publishing from authors or distributors).
+With use of it you can to mark books as original/featured.
 
-The last, but not the least feature, of this plugin is creation connections between original books and their translations (this feature will only work if tranaslations of books are created with cloning tool of Pressbooks).
 
 Plugin is also responsible for creation of back-end (platform) blank setting pages on network and on book level. These blank pages are to be filled with settings of other plugins.
 
 As plugin is supposed to be used with our [child theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks), the plugin also will set up this theme for all newly created books if theme is installed and network active.
+
+# User Manual
+
+## Original Mark
+
+Original Mark package provides network administrators with ability to mark books of original publisher. It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Featured Books'.
+
+## pb_is_based_on metadata update option
+
+pb_is_based_on metadata save the URL of the source of the content if the book is cloned.
+
+Current URL:
+
+/english-a1-grammar/chapter/cardinal-numbers/
+Insert new URL:
+
+Metabox in post edit which contains input field where we can add new pb_is_based_on URL for currently opened post.
+
 
 ## Installation
 
