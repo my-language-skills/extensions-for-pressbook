@@ -1,6 +1,6 @@
 # Extensions for PressBooks
 
-* Contributors:  @danzhik, @huguespages, @!ndeed
+* Contributors:  @danzhik, @huguespages, @lukastonhajzer
 * Donate link: https://opencollective.com/mylanguageskills
 * Tags: wordpress, multisite, pressbooks
 * Tested up to: WP 5.2.4
