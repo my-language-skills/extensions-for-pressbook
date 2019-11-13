@@ -13,7 +13,13 @@ Extended core functionalities for Pressbooks
 
 ## Description
 
-This plugin provides tiny extensions for main functionality of pressbooks. With use of it you can now define Edition of your book in Book Info, also it is possible to mark books of original publisher (for example in case your platform is open for publishing from authors or distributors). The last, but not the least feature, of this plugin is creation connections between original books and their translations (this feature will only work if tranaslations of books are created with cloning tool of Pressbooks). Plugin is also responsible for creation of back-end (platform) blank setting pages on network and on book level. These blank pages are to be filled with settings of other plugins.
+This plugin provides tiny extensions for main functionality of pressbooks.
+
+With use of it you can now define Edition of your book in Book Info, also it is possible to mark books of original publisher (for example in case your platform is open for publishing from authors or distributors).
+
+The last, but not the least feature, of this plugin is creation connections between original books and their translations (this feature will only work if tranaslations of books are created with cloning tool of Pressbooks).
+
+Plugin is also responsible for creation of back-end (platform) blank setting pages on network and on book level. These blank pages are to be filled with settings of other plugins.
 
 As plugin is supposed to be used with our [child theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks), the plugin also will set up this theme for all newly created books if theme is installed and network active.
 
@@ -30,11 +36,11 @@ For upgrades, download the las stable version from github, delete from FTP the o
 
 Extensions For Pressbooks plugin works with:
 
- * PHP 5.6
- * Pressbooks 5.8
-
-
- Lower versions are not supported.
+* [Pressbooks](https://github.com/pressbooks/pressbooks)
+* [Feature Image for PressBooks](https://github.com/my-language-skills/featured-image-for-pressbooks)
+* [Translations for Pressbooks](https://github.com/my-language-skills/translations-for-pressbooks)
+* [books4languages Book Child theme for PressBooks](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks)
+* [books4languages Root Child theme for PressBooks](https://github.com/my-language-skills/books4languages-root-child-theme-for-pressbooks)
 
 ## Disclaimers
 

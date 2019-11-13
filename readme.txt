@@ -11,12 +11,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Collection of functionalities for PressBooks installations
 
-**Only works with multisite installation!**
-**Only works with PressBooks installation!**
-
 == Description ==
 
 Extension for PressBooks is a PressBooks specific plugin that extend the PressBooks functionalities.
+
+
+**Only works with multisite installation!**
+**Only works with PressBooks installation!**
 
 == Installation ==
 
@@ -25,7 +26,9 @@ Extension for PressBooks is a PressBooks specific plugin that extend the PressBo
 This sections describes the requirements of the plugin.
 
 * Wordpress Multisite installation
-* PressBooks plugin activated
+* [Pressbooks](https://github.com/pressbooks/pressbooks)
+* [Feature Image for PressBooks](https://github.com/my-language-skills/featured-image-for-pressbooks)
+* [Translations for Pressbooks](https://github.com/my-language-skills/translations-for-pressbooks)
 * Some functionalities may require to use [books4languages book child theme for pressbooks](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks) or an integration with your theme.
 
 
@@ -45,7 +48,7 @@ Please visit [the support forums](https://wordpress.org/support/plugin/xxxxxxxx)
 = I am a developer; how can I help? =
 
 Any input is much appreciated, and everything will be considered.
-Please visit the [GitHub project page](https://github.com/sybrew/the-seo-framework) to submit issues or even pull requests.
+Please visit the [GitHub project page](https://github.com/my-language-skills/extensions-for-pressbooks) to submit issues or even pull requests.
 
 = Why is not working in my WordPress site or WordPress multisite installation? =
 
