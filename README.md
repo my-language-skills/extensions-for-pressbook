@@ -15,30 +15,29 @@ Extended core functionalities for Pressbooks
 
 This plugin provides tiny extensions for main functionality of pressbooks.
 
-With use of it you can to mark books as original/featured.
-
-
-Plugin is also responsible for creation of back-end (platform) blank setting pages on network and on book level. These blank pages are to be filled with settings of other plugins.
-
-As plugin is supposed to be used with our [child theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks), the plugin also will set up this theme for all newly created books if theme is installed and network active.
-
-# User Manual
+The plugin offer the following functionalities
 
 ## Original Mark
 
 Original Mark package provides network administrators with ability to mark books of original publisher. It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Featured Books'.
 
+## EFP settings page
+
+Extensions for PressBooks provides a blank settings page on network and on book level that can be filled with settings of other plugins.
+
 ## pb_is_based_on metadata update option
 
-pb_is_based_on metadata save the URL of the source of the content if the book is cloned.
+pb_is_based_on metadata save the URL of the source of the content if the book is cloned. With pb_is_based_on metabox, we can see the URL of the source of the content or to update to a new URL if the source change the URL for some reason or is a page created without being cloned.
 
-Current URL:
+>Current URL:
+>[/english-a1-grammar/chapter/cardinal-numbers/]
+>
+>Insert new URL:
+>[ ]
 
-/english-a1-grammar/chapter/cardinal-numbers/
-Insert new URL:
+## default theme
 
-Metabox in post edit which contains input field where we can add new pb_is_based_on URL for currently opened post.
-
+As plugin is supposed to be used with our [child theme](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks), the plugin also will set up this theme for all newly created books if theme is installed and network active.
 
 ## Installation
 
@@ -51,9 +50,12 @@ For upgrades, download the las stable version from github, delete from FTP the o
 
 ## Requirements
 
-Extensions For Pressbooks plugin works with:
+Extensions for pressbooks requires:
 
 * [Pressbooks](https://github.com/pressbooks/pressbooks)
+
+Extensions For Pressbooks plugin works with:
+
 * [Feature Image for PressBooks](https://github.com/my-language-skills/featured-image-for-pressbooks)
 * [Translations for Pressbooks](https://github.com/my-language-skills/translations-for-pressbooks)
 * [books4languages Book Child theme for PressBooks](https://github.com/my-language-skills/books4languages-book-child-theme-for-pressbooks)
