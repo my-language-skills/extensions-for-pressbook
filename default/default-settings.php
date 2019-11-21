@@ -3,28 +3,25 @@
 /**
  * Default theme
  *
- * New websites will use a selected default theme.
+ * New websites will use default options.
  *
  * @link URL
  *
  * @package extensions-for-pressbooks
- * @subpackage Functionality/Defatult theme
- * @since x.x.x (when the file was introduced)
+ * @subpackage Functionality/Defatult options
+ * @since 1.2.4 (when the file was introduced)
  */
 
 /**
  * Force new websites to use books4languages-child-theme-for-pressbooks
  *
- * @since
+ * @since 1.2.4
  *
  */
 
-function exp_set_default_theme () {
-	$def_theme = wp_get_theme('books4languages-book-child-theme-for-pressbooks');
-	if ($def_theme->exists()){
-		switch_theme('books4languages-book-child-theme-for-pressbooks');
-	}
-
-}
-
-add_action('pressbooks_new_blog', 'exp_set_default_theme');
+ function set_default_tagline($blog_id){
+ 	switch_to_blog($blog_id);
+ 	update_option( 'blogdescription', 'by Books for Languages' );
+ 	restore_current_blog();
+ }
+ add_action('wpmu_new_blog', 'set_default_tagline' );
