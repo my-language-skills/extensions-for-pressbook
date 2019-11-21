@@ -36,7 +36,8 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
   if(is_plugin_active('pressbooks/pressbooks.php')){
 
-		include_once plugin_dir_path( __FILE__ ) . "default-theme/default-theme.php";
+		include_once plugin_dir_path( __FILE__ ) . "default/default-theme.php";
+    include_once plugin_dir_path( __FILE__ ) . "default/default-settings.php";
 		include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efp-theme-customizations.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efp-admin-settings.php";
