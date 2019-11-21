@@ -25,7 +25,7 @@ function efp_init_pbibo_metabox(){
   $pbibo_enabled = get_option('efp_pbibo_metabox_enable' );
 
   // initialize the metabox only IF current post 'pb_is_based_on' meta_key exists AND 'efp_pbibo_metabox_enable' is set to 1
-  if (metadata_exists('post', $post->ID, 'pb_is_based_on') && 1 == $pbibo_enabled){
+  if ( 1 == $pbibo_enabled){
         $post_types = ['metadata','front-matter','chapter','part', 'back-matter'];
         add_meta_box( 'efp_pbibo_metabox', 'Change pb_is_based_on value', 'efp_render_pbibo_metabox', $post_types, 'side', 'low');
     }
@@ -41,7 +41,11 @@ function efp_render_pbibo_metabox(){
     global $post;
     if (empty(get_post_meta($post->ID, 'pb_is_based_on', true))) { // If pb_is_based_on URL is not set print diferent output
       $html = '<b>Current URL:</b>';
-      $html .= '<p style="word-wrap:break-word;">not set</p><hr>' ;
+      if (true != efp_is_site_clone()){
+         $html .= '<p style="word-wrap:break-word;">Site is considered as source.</p><hr>' ;
+      } else {
+         $html .= '<p style="word-wrap:break-word;">not set</p><hr>' ;
+      }
       $html .= '<b>Set new URL:</b>';
       $html .= '<input name="pb_is_based_on" id="efp_pbibo_metabox" type="url"  placeholder="http://example.com" size="25" />';
       echo $html;

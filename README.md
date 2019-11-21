@@ -87,6 +87,9 @@ If you need some help with understanding on how plugin was structured, take a lo
    * 'Settings saved' information bar have been added to inform user settings have been updated sucessfully.
    * post-edit pb_is_based_on metabox is now shown even when pb_is_based_on value is not set for the current post.
 
+ * **MODIFICATIONS**
+    * Possibility to display 'pb_is_based_on' metabox on post-edit page enabled also for books with no 'pb_is_based_on' value (source books)
+
 * **LIST OF FILE REVISED**
    * ADDED post-metabox-pb_is_based_on.php
    * ADDED efp-admin-settings

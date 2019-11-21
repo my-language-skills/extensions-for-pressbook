@@ -43,14 +43,9 @@ function extensions_section_description(){
 }
 
 function efp_settings_callback(){
-    if (true == efp_is_site_clone()) {
       	$option = get_option( 'efp_pbibo_metabox_enable' );
         echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> Check to enable the metaboxes for this BOOK.';
-    } else {
-        echo '<input type="checkbox" value="0" disabled="disabled" /> (Option enabled to change only in clone books)';
-    }
   }
-
 
 /**
  * Function for determining if current site is a clone or not.
