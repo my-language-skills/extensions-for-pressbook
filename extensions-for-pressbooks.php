@@ -16,7 +16,7 @@
  * Plugin Name:       Extensions for PressBooks
  * Plugin URI:        https://github.com/my-language-skills/extensions-for-pressbooks
  * Description:       Small enhancement for Pressbooks main plugin
- * Version:           1.2.4
+ * Version:           1.2.5
  * Pressbooks tested up to: 5.10
  * Author:            My Language Skills team
  * Author URI:        https://github.com/my-language-skills/
