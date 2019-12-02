@@ -80,6 +80,11 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+
+#### 1.X
+* **ADDITIONS**
+   * Added drop down menu to choose books written in a specific language.
+
 #### 1.2.5
 * **ADDITIONS**
    * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).
