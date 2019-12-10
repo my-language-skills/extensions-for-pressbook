@@ -29,7 +29,7 @@ function efp_init_settings_section (){
   add_option('efp_pbibo_metabox_enable', 0);
 
   add_settings_field(	'efp_pbibo_metabox_enable',
-                      'Display pb_is_based_on metabox in posts',
+                      'Source and cloned books',
                       'efp_settings_callback',
                       'theme-customizations',
                       'extensions_section'); //add settings field to the translations_section
@@ -44,7 +44,7 @@ function extensions_section_description(){
 
 function efp_settings_callback(){
       	$option = get_option( 'efp_pbibo_metabox_enable' );
-        echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> Check to enable the metaboxes for this BOOK.';
+        echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _('Enable pb_is_based_on metabox in post edit page') .'';
   }
 
 /**

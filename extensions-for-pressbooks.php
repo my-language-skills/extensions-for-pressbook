@@ -28,8 +28,6 @@
  */
 
 
-
-
 defined ("ABSPATH") or die ("No script assholes!");
 
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
