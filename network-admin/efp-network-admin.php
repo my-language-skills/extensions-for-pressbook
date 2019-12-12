@@ -17,7 +17,13 @@ defined ("ABSPATH") or die ("Action denied!");
 add_action( 'network_admin_menu', 'efp_add_network_settings');
 
  function efp_add_network_settings() {
+/*
 
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! use specifical prefix
+  example: efpm_add_network_settings OR or something more specific than efp so it will be more secure ---> no conflicts with other plugin
+
+
+*/
  	  add_submenu_page( 'settings.php',
    'Extensions Network Settings',
    'EFP settings',
@@ -70,7 +76,17 @@ add_action( 'network_admin_edit_efp-update', 'efp_save_settings');
    check_admin_referer( 'efp-network-validate' );
 
    //Following two rows are responsible for saving form data of the TRANSLATIONS plugin.
-   update_site_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save'] );
+
+   //Added sanitize control
+   sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']);
+
+   //Added validate control
+   if(isset($_POST['tfp_uninstall_save'])){
+      update_site_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save'] );
+   }
+   /*      miss the escape control
+   PROBLEM: SANITIZE ESCAPE VALIDATE ---> use esc_html() if the function print something
+   */
    wp_redirect(add_query_arg(array('page' => 'efp-network-settings-page', 'setting-updated' => 'true'), network_admin_url('settings.php')));
 
    exit();

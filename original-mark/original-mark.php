@@ -45,8 +45,17 @@ function mark_as_original () {
 		return;
 	}
 
-	$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id
-	$is_original = $_POST['is_original'];
+	//Added validate control
+	if(intval(absint( $_POST['book_id'] ) != 0)) {
+			$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id
+	}
+	//Added validate control
+	if(is_bool($_POST['is_original'])){
+			$is_original = $_POST['is_original'];
+	}
+	/*
+	maybe they need to be sanitize
+	*/
 
 	if ( $is_original === 'true' ) {
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );

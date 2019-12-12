@@ -48,3 +48,14 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 		}
 
 	}
+
+  /**
+   * add support for excerpt to chapter post type
+   *
+   * @since 1.2.5
+   *
+   */
+  function efppb_wpcodex_add_excerpt_support_for_post() {
+        add_post_type_support( 'chapter', 'excerpt' );
+    }
+    add_action( 'init', 'efppb_wpcodex_add_excerpt_support_for_post' );
