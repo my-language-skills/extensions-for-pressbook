@@ -14,16 +14,15 @@
 
 defined ("ABSPATH") or die ("Action denied!");
 
-add_action( 'network_admin_menu', 'efp_add_network_settings');
-
- function efp_add_network_settings() {
 /*
 
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! use specifical prefix
-  example: efpm_add_network_settings OR or something more specific than efp so it will be more secure ---> no conflicts with other plugin
-
+renamed efp in efpb
 
 */
+add_action( 'network_admin_menu', 'efpb_add_network_settings');
+
+ function efpb_add_network_settings() {
+
  	  add_submenu_page( 'settings.php',
    'Extensions Network Settings',
    'EFP settings',

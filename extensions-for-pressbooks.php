@@ -55,7 +55,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
    * @since 1.2.5
    *
    */
-  function efppb_wpcodex_add_excerpt_support_for_post() {
+  function efpb_wpcodex_add_excerpt_support_for_post() {
         add_post_type_support( 'chapter', 'excerpt' );
     }
-    add_action( 'init', 'efppb_wpcodex_add_excerpt_support_for_post' );
+    add_action( 'init', 'efpb_wpcodex_add_excerpt_support_for_post' );

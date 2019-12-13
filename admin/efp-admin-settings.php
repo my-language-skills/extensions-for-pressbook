@@ -16,14 +16,13 @@ defined ("ABSPATH") or die ("Action denied!");
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
-			add_action('admin_init','efp_init_settings_section');
+			add_action('admin_init','efpb_init_settings_section');
   }
 
-function efp_init_settings_section (){
+function efpb_init_settings_section (){
 
   add_settings_section( 'extensions_section',
                         'Extensions section',
-                        'extensions_section_description',
                         'theme-customizations');
 
   add_option('efp_pbibo_metabox_enable', 0);
@@ -38,9 +37,7 @@ function efp_init_settings_section (){
                     'efp_pbibo_metabox_enable');
 }
 
-function extensions_section_description(){
-	echo '<p></p>';
-}
+
 
 function efp_settings_callback(){
       	$option = get_option( 'efp_pbibo_metabox_enable' );
