@@ -7,7 +7,7 @@ plugins/extensions-for-pressbooks/                                              
 │   └── folder-structure.php                                                    # → Plugin folder structure
 │   └── user-manual.php                                                         # → Plugin user manual
 ├── network-admin
-│   └── efp-network-admin.php                                                   # → Network admin multisite settings
+│   └── efpb-network-admin.php                                                   # → Network admin multisite settings
 ├── original-mark/                                                              # → Original mark folder
 │   └── assets/                                                                 # → Assets folder
 │       └── original-mark.php                                                   # → Original mark php

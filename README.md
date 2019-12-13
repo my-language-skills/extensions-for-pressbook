@@ -97,7 +97,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 * **LIST OF FILE REVISED**
    * ADDED post-metabox-pb_is_based_on.php
-   * ADDED efp-admin-settings
+   * ADDED efpb-admin-settings
    * extensions-for-pressbooks.php
 
 #### 1.2.4
