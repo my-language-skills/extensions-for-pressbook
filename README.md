@@ -85,6 +85,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 * **ADDITIONS**
    * Added drop down menu to choose books written in a specific language.
    * Now all languages are available to be choosen
+
 #### 1.2.5
 * **ADDITIONS**
    * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).
@@ -97,7 +98,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 * **LIST OF FILE REVISED**
    * ADDED post-metabox-pb_is_based_on.php
-   * ADDED efpb-admin-settings
+   * ADDED efp-admin-settings
    * extensions-for-pressbooks.php
 
 #### 1.2.4
