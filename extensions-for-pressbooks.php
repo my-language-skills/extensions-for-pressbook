@@ -34,17 +34,17 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
   if(is_plugin_active('pressbooks/pressbooks.php')){
 
-		include_once plugin_dir_path( __FILE__ ) . "default/default-theme.php";
-    include_once plugin_dir_path( __FILE__ ) . "default/default-settings.php";
-		include_once plugin_dir_path( __FILE__ ) . "original-mark/original-mark.php";
+		include_once plugin_dir_path( __FILE__ ) . "default/efpb-default-theme.php";
+    include_once plugin_dir_path( __FILE__ ) . "default/efbp-default-settings.php";
+		include_once plugin_dir_path( __FILE__ ) . "original-mark/efpb-original-mark.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-theme-customizations.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-admin-settings.php";
-    include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/groupByLanguage.php";
+    include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
 
 		//loading network settings only for multisite installation
 		if (is_multisite()){
 			include_once plugin_dir_path( __FILE__ ) . "network-admin/efpb-network-admin.php";
-			include_once plugin_dir_path( __FILE__ ) . "post-metabox-pb_is_based_on/post-metabox-pb_is_based_on.php";
+			include_once plugin_dir_path( __FILE__ ) . "post-metabox-pb_is_based_on/efpb-post-metabox-pb_is_based_on.php";
 		}
 
 	}

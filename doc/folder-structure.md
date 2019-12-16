@@ -1,20 +1,42 @@
 # Plugin structure
 ```
 plugins/extensions-for-pressbooks/                                              # → Plugin root
-├── default-theme/                                                              # → Default theme folder                    
-│   └── default-theme.php                                                       # → Php default theme functions
-├── doc/                                                                        # → Default doc folder
-│   └── folder-structure.php                                                    # → Plugin folder structure
-│   └── user-manual.php                                                         # → Plugin user manual
-├── network-admin
-│   └── efpb-network-admin.php                                                   # → Network admin multisite settings
-├── original-mark/                                                              # → Original mark folder
-│   └── assets/                                                                 # → Assets folder
-│       └── original-mark.php                                                   # → Original mark php
-│       └── scripts/                                                            # → Script folder
-│           └── original-mark-admin.js                                          # → Original mark script
-├── post-metabox-pb_is_based_on                                                 
-│   └── post-metabox-pb_is_based_on.php                                         # → Metabox in post-edit page
-├── wp-assets/                                                                  # → Images folder
-│   └── all-banner.png                                                          # → Image
-└── extensions-for-pressbooks.php                                               # → Customise style of the theme php
+├── admin                                                                       # → Admin folder
+│   ├── efpb-admin-settings.php                                                 # → Admin settings file php
+│   ├── efpb-theme-customizations.php                                           # → Theme Customization file php
+│   └── index.php                                                               # → Empty index file php                    
+├── default                                                                     # → Default themes and settings folder
+│   ├── efpb-default-settings.php                                               # → Default settings file php
+│   ├── efpb-default-themes.php                                                 # → Default themes file php
+│   └── index.php                                                               # → Empty index file php                       
+├── doc                                                                         # → Doc folder
+│   └── FOLDER-STRUCTURE.md                                                     # → Folder structure file md                    
+├── groupByLanguage                                                             # → GroupByLanguage folder
+│   └── efpb-groupByLanguage.php                                                # → Function who create the dropdown menu for language                    
+├── network-admin                                                               # → Network admin folder
+│   └── efpb-network-admin.php                                                  # → Network admin file php
+├── original-mark                                                               # → Original mark folder
+│   ├── assets                                                                  # → Assets folder
+│   │   └── scripts                                                             # → Scripts folder
+│   │       └── original-mark-admin.js                                          # → Original mark admin file js
+│   ├── efpb-original-mark.php                                                  # → Original mark file php
+│   └── index.php                                                               # → Empty index file php                      
+├── post-metabox-pb_is_based_on                                                 # → Post metabox pb is based on folder  
+│   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox pb is based on file php                   
+├── wp-assets                                                                   # → Wp assets folder
+│   ├── banner-772x250.png                                                      # → Banner file png
+│   ├── banner-1544x500-rtl.png                                                 # → Banner file png
+│   ├── banner-1544x500.png                                                     # → Banner file png
+│   ├── icon-128x128.png                                                        # → Icon file png
+│   ├── icon-256x256.png                                                        # → Icon file png
+│   ├── screenshot-1.png                                                        # → Screenshot file png  
+│   └── screenshot-2.png                                                        # → Screenshot file png                    
+├── .editorconfig                                                               # →                     
+├── .gitattributes                                                              # →                     
+├── .gitignore                                                                  # →                     
+├── extensions-for-pressbooks.php                                               # → Main function of plugin file php                    
+├── index.php                                                                   # → Empty index file php                    
+├── LICENSE.md                                                                  # → License file md                    
+├── LICENSE.txt                                                                 # → License file txt                    
+├── README.md                                                                   # → Readme file md                    
+└── readme.txt                                                                  # → Readme file txt                    

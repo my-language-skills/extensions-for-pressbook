@@ -96,7 +96,7 @@ If you need some help with understanding on how plugin was structured, take a lo
     * Possibility to display 'pb_is_based_on' metabox on post-edit page enabled also for books with no 'pb_is_based_on' value (source books)
 
 * **LIST OF FILE REVISED**
-   * ADDED post-metabox-pb_is_based_on.php
+   * ADDED efpb-post-metabox-pb_is_based_on.php
    * ADDED efpb-admin-settings
    * extensions-for-pressbooks.php
 
