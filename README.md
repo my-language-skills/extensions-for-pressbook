@@ -85,6 +85,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 * **ADDITIONS**
    * Added drop down menu to choose books written in a specific language.
    * Now all languages are available to be choosen
+   * Added new functionality: now in the dropdown menu are shown only available languages and not all.
 #### 1.2.5
 * **ADDITIONS**
    * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).
