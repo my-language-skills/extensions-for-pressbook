@@ -1,27 +1,35 @@
 <?php
-/*
-    @package groupByLanguage
-*/
+/**
+ * Extensions for PressBooks / groupByLanguage Plugin
+ *
+ * This file is a functionality of Extensions for PressBooks Plugin. It creates a
+ * new dropdown menu in the Admin Books page and gives the possibity to show in the
+ * list only the books in a specific language (selected in the dropdown menu).
+ *
+ * @link              URL
+ * @since             ???
+ * @package           extensions-for-pressbooks
+ */
 
-/*
-Plugin Name: groupByLanguage
-Plugin URI: http://www.test.com
-Description: Plug-in to create a dropdown menu to filter books by language
-Version: 1.0.0
-Author: Arald Garbolino
-Author URI: http://www.arald.com
-License: GPLv2 or later
-Text Domain: groupByLanguagePlugin
+/**
+* This function create a new dropdown menu and it shows only available languages.
+* If there's no books about a language, this language not appear in the dropdown menu.
 */
-
 add_action( 'restrict_manage_sites', 'efppb_add_language_dropdown_menu' );
 function efppb_add_language_dropdown_menu( $which ) {
-    if ( 'top' !== $which ) {
+    if ( 'top' !== $which ) {  // the dropdown menu must be on the top
         return;
     }
-    echo '<select name="cuisine">';
-    printf( '<option value="">%s</option>', __( 'All languages', 'groupByLanguagePlugin' ) );
-
+    echo '<select name="language">';
+    printf( '<option value="">%s</option>', __( 'All languages', 'groupByLanguagePlugin' ) );  //print the button "All languages"
+/**
+* The query that return the list with all the languages in which at least one book has been written.
+*/
+    global $wpdb;
+    $languages_from_db = $wpdb->get_results( "SELECT DISTINCT meta_value FROM `wp_blogmeta` WHERE meta_key = 'pb_language'");
+/**
+* The list with all the languages of Pressbooks books.
+*/
     $dropdown_languages = array(
   					'ar'     => __( 'Arabic', 'groupByLanguagePlugin' ),
   					'bg'     => __( 'Bulgarian', 'groupByLanguagePlugin' ),
@@ -60,7 +68,7 @@ function efppb_add_language_dropdown_menu( $which ) {
   					'uk'     => __( 'Ukrainian', 'groupByLanguagePlugin' ),
   					'vi'     => __( 'Vietnamese', 'groupByLanguagePlugin' ),
   					'zh'     => __( 'Chinese', 'groupByLanguagePlugin' )
-            /*       OTHERS LANGUAGES:
+            /*       OTHERS LANGUAGES NOT AVAILABLE YET:
   					'ka'     => __( 'Georgian', 'groupByLanguagePlugin' ),
   					'lu'     => __( 'Luba-Katanga', 'groupByLanguagePlugin' ),
   					'ps'     => __( 'Pushto; Pashto', 'groupByLanguagePlugin' ),
@@ -70,26 +78,44 @@ function efppb_add_language_dropdown_menu( $which ) {
   					'za'     => __( 'Zhuang; Chuang', 'groupByLanguagePlugin' ),
             */
   			);
+/*
+* This is the core of the filter. There is the comparison beetween "query list"
+* and "full list". If the language is available the flag = 1, else flag = 0.
+* If flag = 0 the element is deleted from the list.
+* query list => $languages_from_db. Languages name is potted (English = en).
+* full list => $dropdown_languages.
+*/
+    foreach ($dropdown_languages as $key => $value) {
+      $flag = 0;
+      foreach ($languages_from_db as $lang) {
+        if($key == $lang->meta_value) $flag = 1;
+      }
+      if($flag == 0) unset($dropdown_languages[$key]);
+    }
 
-    $requested_cuisine = isset( $_GET['cuisine'] ) ? wp_unslash( $_GET['cuisine'] ) : '';
+    $requested_cuisine = isset( $_GET['language'] ) ? wp_unslash( $_GET['language'] ) : '';
 
-    foreach ( $dropdown_languages as $cuisine => $label ) {
-        $selected = selected( $cuisine, $requested_cuisine, false );          //add all languages to the dropdown menu
-        printf( '<option%s>%s</option>', $selected, $label );
+    foreach ( $dropdown_languages as $language => $label ) {
+        $selected = selected( $language, $requested_cuisine, false );          //add all languages to the dropdown menu
+        printf( '<option%s>%s</option>', $selected, $label );                 //and print the full name of language
     }
     echo '</select>';
     return;
 }
-
+/**
+* The filter function.
+* It gets the choice of the user (full name of language) and transforms it
+* in the potted name with the "translate_choice" function.
+*/
 add_filter( 'ms_sites_list_table_query_args', 'efpm_sites_with_language_choosen_in_dropdown_menu' );
 function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
-    if ( empty( $_GET['cuisine' ] ) ) {
+    if ( empty( $_GET['language' ] ) ) {
         return $args;
     }
 
     $meta_query = array(
         'key'   => 'pb_language',
-        'value' => translate_choice(wp_unslash( $_GET['cuisine' ] ))
+        'value' => translate_choice(wp_unslash( $_GET['language' ] ))
     );
 
     if ( isset( $args['meta_query'] ) ) {
@@ -108,6 +134,10 @@ function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
     }
     return $args;
 }
+
+/**
+* The function that translates full name in potted name.
+*/
 
 function translate_choice($args){
   $translateChoice = array(
@@ -160,5 +190,5 @@ function translate_choice($args){
       foreach ($translateChoice as $key => $value) {
           if($args == $value) return $key;
       }
-      return '';
+      return ''; //return an empty string if the language doesn't exist (that's impossible).
 	}

@@ -23,6 +23,7 @@ function efpb_init_settings_section (){
 
   add_settings_section( 'extensions_section',
                         'Extensions section',
+												'',
                         'theme-customizations');
 
   add_option('efp_pbibo_metabox_enable', 0);

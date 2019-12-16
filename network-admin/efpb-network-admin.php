@@ -14,11 +14,6 @@
 
 defined ("ABSPATH") or die ("Action denied!");
 
-/*
-
-renamed efp in efpb
-
-*/
 add_action( 'network_admin_menu', 'efpb_add_network_settings');
 
  function efpb_add_network_settings() {
