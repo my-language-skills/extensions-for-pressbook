@@ -25,7 +25,7 @@ Extension for PressBooks is a PressBooks specific plugin that extend the PressBo
 
 This sections describes the requirements of the plugin.
 
-* Wordpress Multisite installation
+* WordPress Multisite installation
 * [Pressbooks](https://github.com/pressbooks/pressbooks)
 * [Feature Image for PressBooks](https://github.com/my-language-skills/featured-image-for-pressbooks)
 * [Translations for Pressbooks](https://github.com/my-language-skills/translations-for-pressbooks)
@@ -60,6 +60,7 @@ Extensions for PressBooks is created to be used with our child theme. But any ch
 
 == Screenshots ==
 
+1. Settings - organisation name and logo
 
 == Changelog ==
 

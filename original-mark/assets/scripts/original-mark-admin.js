@@ -6,7 +6,7 @@ jQuery(document).ready(function () {
 			{url:ajaxurl,
 			 type:"POST",
 			 data:{
-			 	action:"efp_mark_as_original",
+			 	action:"efpb_mark_as_original",
 			 	book_id:id,
 			 	is_original:val,
 			 	_ajax_nonce:PB_Aldine_Admin.aldineAdminNonce

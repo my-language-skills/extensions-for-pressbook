@@ -19,9 +19,9 @@
  *
  */
 
- function set_default_tagline($blog_id){
+ function efpb-set_default_tagline($blog_id){
  	switch_to_blog($blog_id);
  	update_option( 'blogdescription', 'by Books for Languages' );
  	restore_current_blog();
  }
- add_action('wpmu_new_blog', 'set_default_tagline' );
+ add_action('wpmu_new_blog', 'efpb-set_default_tagline' );

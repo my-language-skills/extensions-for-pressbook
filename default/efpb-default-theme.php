@@ -19,7 +19,7 @@
  *
  */
 
-function exp_set_default_theme () {
+function efpb_exp_set_default_theme () {
 	$def_theme = wp_get_theme('books4languages-book-child-theme-for-pressbooks');
 	if ($def_theme->exists()){
 		switch_theme('books4languages-book-child-theme-for-pressbooks');
@@ -27,4 +27,4 @@ function exp_set_default_theme () {
 
 }
 
-add_action('pressbooks_new_blog', 'exp_set_default_theme');
+add_action('pressbooks_new_blog', 'efpb_exp_set_default_theme');
