@@ -40,6 +40,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-theme-customizations.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-admin-settings.php";
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
+    include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
 
 		//loading network settings only for multisite installation
 		if (is_multisite()){
@@ -48,14 +49,3 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 		}
 
 	}
-
-  /**
-   * add support for excerpt to chapter post type
-   *
-   * @since 1.2.5
-   *
-   */
-  function efpb_wpcodex_add_excerpt_support_for_post() {
-        add_post_type_support( 'chapter', 'excerpt' );
-    }
-    add_action( 'init', 'efpb_wpcodex_add_excerpt_support_for_post' );
