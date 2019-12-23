@@ -48,7 +48,17 @@ add_action('pressbooks_new_blog', 'efpb_exp_set_default_theme');
  * Notice: Undefined variable: _SESSION in /var/www/vhosts/books4languages.com/open.books4languages.com/wp-content/plugins/pressbooks/inc/namespace.php on line 177
  * Notice: Undefined variable: _SESSION in /var/www/vhosts/books4languages.com/open.books4languages.com/wp-content/plugins/pressbooks/inc/namespace.php on line 177
  *
+ *
+ * Note that style.css is not used except to provide Pressbooks with theme file header information.
+ * Your web theme stylesheet is compiled when your theme is activated or theme options that affect it are changed.
+ * For easier development, you can add the following line to wp-config.php: define('WP_ENV', 'development');
+ * This will turn on the development compiler introduced in Pressbooks 3.9.0,
+ * which triggers a recompile of your web theme stylesheet if the source files have been modified since it was last compiled when you visit any page in your webbook (see here).
+ *
+ * define('WP_ENV', 'development');
+ *
  **/
+
 
 
 // function switch_all_multisite_themes()
