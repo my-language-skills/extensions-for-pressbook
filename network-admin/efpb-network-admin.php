@@ -71,10 +71,10 @@ add_action( 'network_admin_edit_efp-update', 'efp_save_settings');
 
    //Following two rows are responsible for saving form data of the TRANSLATIONS plugin.
 
-   //Added sanitize control
+   //Add sanitize control
    sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']);
 
-   //Added validate control
+   //Add validate control
    if(isset($_POST['tfp_uninstall_save'])){
       update_site_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save'] );
    }
