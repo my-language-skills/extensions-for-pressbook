@@ -59,6 +59,6 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
  */
 
 
-  // add_action( 'wp_print_styles', function() {
-  //     if (!is_admin_bar_showing()) wp_deregister_style( 'dashicons' );
-  // }, 100);
+add_action( 'wp_print_styles', function() {
+    if (!is_admin_bar_showing()) wp_deregister_style( 'dashicons' );
+}, 100);
