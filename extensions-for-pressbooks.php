@@ -16,7 +16,7 @@
  * Plugin Name:       Extensions for PressBooks
  * Plugin URI:        https://github.com/my-language-skills/extensions-for-pressbooks
  * Description:       Small enhancement for Pressbooks main plugin
- * Version:           1.2.6
+ * Version:           1.2.7
  * Pressbooks tested up to: 5.10
  * Author:            My Language Skills team
  * Author URI:        https://github.com/my-language-skills/
@@ -49,16 +49,3 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 		}
 
 	}
-
-
-/**
- * Deregister los dashicons si no se muestra la barra de admin
- *
- * @since 1.2.6
- *
- */
-
-
-add_action( 'wp_print_styles', function() {
-    if (!is_admin_bar_showing()) wp_deregister_style( 'dashicons' );
-}, 100);
