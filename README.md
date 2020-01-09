@@ -80,8 +80,11 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+### 1.2.7
+* **REMOVED**
+  * Deregister dashicons REMOVED
 
-#### 1.X
+#### 1.2.6
 * **ADDITIONS**
    * Added drop down menu to choose books written in a specific language.
    * Now all languages are available to be choosen
