@@ -41,6 +41,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-admin-settings.php";
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
     include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
+    include_once plugin_dir_path( __FILE__ ) . "TSF-modification/efpb-tsf-modification.php";
 
 		//loading network settings only for multisite installation
 		if (is_multisite()){

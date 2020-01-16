@@ -45,23 +45,19 @@ function efpb_mark_as_original() {
 		return;
 	}
 
-	//Added validate control
-	if(intval(absint( $_POST['book_id'] ) != 0)) {
-			$blog_id = absint( $_POST['book_id'] ); //absolute the post book_id
-	}
-	//Added validate control
-	if( isset( $_POST['is_original'] )){
-		if(filter_var( $_POST['is_original'], FILTER_VALIDATE_BOOLEAN )){
-			if( is_bool( $_POST['is_original'] )){
+
+			$blog_id = $_POST['book_id'];
+
+
 				$is_original = $_POST['is_original'];
-			}
-		}
-	}
+
 
 	if ( $is_original === 'true' ) {
+		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );
 	} else {
 		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
+		update_blog_option( $blog_id, 'efp_publisher_is_original', 0 );
 	}
 }
 

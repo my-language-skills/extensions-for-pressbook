@@ -12,7 +12,7 @@ plugins/extensions-for-pressbooks/                                              
 ├── doc                                                                         # → Doc folder
 │   └── FOLDER-STRUCTURE.md                                                     # → Folder structure file md                    
 ├── groupByLanguage                                                             # → GroupByLanguage folder
-│   └── efpb-groupByLanguage.php                                                # → Function who create the dropdown menu for language                    
+│   └── efpb-groupByLanguage.php                                                # → GroupByLanguage file php                    
 ├── network-admin                                                               # → Network admin folder
 │   └── efpb-network-admin.php                                                  # → Network admin file php
 ├── original-mark                                                               # → Original mark folder
@@ -21,8 +21,11 @@ plugins/extensions-for-pressbooks/                                              
 │   │       └── original-mark-admin.js                                          # → Original mark admin file js
 │   ├── efpb-original-mark.php                                                  # → Original mark file php
 │   └── index.php                                                               # → Empty index file php                      
-├── post-metabox-pb_is_based_on                                                 # → Post metabox pb is based on folder  
-│   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox pb is based on file php                   
+├── post-metabox-pb_is_based_on                                                 # → Post metabox folder  
+│   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox file php
+├── TSF-modification                                                            # → Tsf modification folder
+│   ├── efpb-tsf-modification.php                                               # → Tsf modification file php
+│   └── index.php                                                               # → Empty index file php
 ├── wp-assets                                                                   # → Wp assets folder
 │   ├── banner-772x250.png                                                      # → Banner file png
 │   ├── banner-1544x500-rtl.png                                                 # → Banner file png
