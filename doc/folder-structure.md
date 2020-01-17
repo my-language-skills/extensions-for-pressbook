@@ -24,6 +24,9 @@ plugins/extensions-for-pressbooks/                                              
 ├── post-metabox-pb_is_based_on                                                 # → Post metabox folder  
 │   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox file php
 ├── TSF-modification                                                            # → Tsf modification folder
+│   ├── assets                                                                  # → Assets folder
+│   │   └── scripts                                                             # → Scripts folder
+│   │       └── canonical-admin.js                                              # → Canonical admin file js
 │   ├── efpb-tsf-modification.php                                               # → Tsf modification file php
 │   └── index.php                                                               # → Empty index file php
 ├── wp-assets                                                                   # → Wp assets folder

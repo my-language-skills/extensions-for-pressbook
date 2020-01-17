@@ -45,13 +45,13 @@ function efpb_mark_as_original() {
 		return;
 	}
 
-
-			$blog_id = $_POST['book_id'];
-
-
-				$is_original = $_POST['is_original'];
-
-
+	$blog_id = intval($_POST['book_id']);
+	if(!$blog_id){
+		$blog_id = "";
+	}
+	$blog_id = sanitize_text_field ($blog_id);
+	$is_original = $_POST['is_original'];
+	$is_original = sanitize_text_field ($is_original);
 	if ( $is_original === 'true' ) {
 		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );
