@@ -14,15 +14,19 @@
 /**
  * FILTERS AND ACTIONS:
 **/
-add_filter( 'wpmu_blogs_columns', 'efpb_add_canonical_column' );
-add_action( 'manage_sites_custom_column', 'efpb_render_canonical_column', 1, 3 );
-add_action('wp_ajax_efpb_mark_canonical', 'efpb_mark_canonical', 1);
-add_action('admin_enqueue_scripts', 'efpb_om_enqueue_scripts_canonical');
+//It works only with "The SEO Framework" plugin active
+if(is_plugin_active('autodescription/autodescription.php')){
+  add_filter( 'wpmu_blogs_columns', 'efpb_add_canonical_column' );
+  add_action( 'manage_sites_custom_column', 'efpb_render_canonical_column', 1, 3 );
+  add_action('wp_ajax_efpb_mark_canonical', 'efpb_mark_canonical', 1);
+  add_action('admin_enqueue_scripts', 'efpb_om_enqueue_scripts_canonical');
+}
 
 /**
  * CORE:
  * @since
 **/
+if(is_plugin_active('autodescription/autodescription.php')){
 if(get_current_blog_id() != 1){
   global $wpdb;
   $blog_id =get_current_blog_id();
@@ -51,7 +55,7 @@ if(get_current_blog_id() != 1){
     }
   }
 }
-
+}
 /**
  * FUNCTIONS:
  *
