@@ -13,9 +13,9 @@ jQuery(document).ready(function () {
 			 },
 			 success:function(){
 			 	if (val == 1) {
-			 		alert('Book has no canonical link!');
+			 		alert("Book has father's canonical link!");
 			    } else {
-			    	alert('Book has canonical link!');
+			    	alert('Book has original canonical link!');
 			    }
 			 }
 		    }

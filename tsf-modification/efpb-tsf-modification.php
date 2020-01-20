@@ -1,4 +1,4 @@
-      <?php
+<?php
 /**
  * Extensions for PressBooks / TSF modification
  *
@@ -6,7 +6,7 @@
  * the canonical URL tag from TSF plugin.
  *
  * @link              URL
- * @since              
+ * @since
  * @package           extensions-for-pressbooks
  *
  **/
@@ -55,11 +55,11 @@ if(get_current_blog_id() != 1){
 /**
  * FUNCTIONS:
  *
- * Create columns
+ * Create column
  * @since
 **/
 function efpb_add_canonical_column ($columns) {
-  $columns['canonical'] = __( 'No Link', 'extensions-for-pressbooks' );
+  $columns['canonical'] = __( 'Father Canonical Url', 'extensions-for-pressbooks' );
   return $columns;
 }
 
@@ -69,7 +69,7 @@ function efpb_add_canonical_column ($columns) {
 **/
 function efpb_render_canonical_column ($column, $blog_id ) {
   if ( 'canonical' === $column && ! is_main_site( $blog_id ) ) { ?>
-    <input class="canonical" type="checkbox" name="canonical" value="1" aria-label="<?php echo esc_attr_x( 'No Link', 'extensions-for-pressbooks' ); ?>" <?php checked( get_blog_option( $blog_id, 'efp_publisher_canonical' ), 1 ); ?> />
+    <input class="canonical" type="checkbox" name="canonical" value="1" aria-label="<?php echo esc_attr_x( 'Father Canonical Url', 'extensions-for-pressbooks' ); ?>" <?php checked( get_blog_option( $blog_id, 'efp_publisher_canonical' ), 1 ); ?> />
   <?php }
 }
 
@@ -83,7 +83,8 @@ function efpb_mark_canonical() {
 }
   $blog_id = intval($_POST['book_id']);
   if(!$blog_id){
-    $blog_id = "";
+    //$blog_id = "";
+    return;
   }
   $blog_id = sanitize_text_field ($blog_id);
   $canonical = $_POST['canonical'];
