@@ -19,7 +19,7 @@ The plugin offer the following functionalities
 
 ## Canonical
 
-Canonical package provides network administrators with ability to choose canonical link of cloned books (original canonical url or father's canonical url). It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Father Canonical Url'.
+Canonical package provides network administrators with ability to choose canonical link of cloned books (original canonical url or father's canonical url). This extension works only if "The SEO Framework" plugin is active. It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Father Canonical Url'. 
 
 
 ## Original Mark
