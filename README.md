@@ -17,6 +17,11 @@ This plugin provides tiny extensions for main functionality of pressbooks.
 
 The plugin offer the following functionalities
 
+## Canonical
+
+Canonical package provides network administrators with ability to choose canonical link of cloned books (original canonical url or father's canonical url). It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Father Canonical Url'.
+
+
 ## Original Mark
 
 Original Mark package provides network administrators with ability to mark books of original publisher. It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Featured Books'.
