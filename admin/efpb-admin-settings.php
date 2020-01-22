@@ -2,7 +2,7 @@
 /**
  * Generate settings section for this plugin in EFP theme customizatioin section
  *
- * Page EFP Customization is generated in and managed by this plugin by efp-theme-customization.php.
+ * Page EFP Customization is generated in and managed by this plugin by efpb-theme-customization.php.
  * But settings section is generated in this separated file to keep consistency across other plugins using EFP Customization page.
  *
  * @package extensions-for-pressbooks
@@ -16,34 +16,99 @@ defined ("ABSPATH") or die ("Action denied!");
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
-			add_action('admin_init','efpb_init_settings_section');
-  }
+	add_action('admin_init','efpb_init_settings_section');
+
+	if ( book_is_a_clone() && book_is_a_featured()){
+		add_action('admin_init','efpb_canonical_section');
+	}
+}
 
 function efpb_init_settings_section (){
 
-  add_settings_section( 'extensions_section',
-                        'Extensions section',
-												'',
-                        'theme-customizations');
+	add_settings_section( 'extensions_section', //tag section
+												'Extensions section', //name section
+												'',										//function
+												'theme-customizations');	//page
 
   add_option('efp_pbibo_metabox_enable', 0);
 
-  add_settings_field(	'efp_pbibo_metabox_enable',
-                      'Source and cloned books',
-                      'efp_settings_callback',
-                      'theme-customizations',
-                      'extensions_section'); //add settings field to the translations_section
+	add_settings_field(	'efp_pbibo_metabox_enable', 	//parameter
+											'Source and cloned books',  	//Title
+											'efp_settings_callback',		  //function
+											'theme-customizations', 			//page
+											'extensions_section'); 				//add settings field to the translations_section
 
   register_setting( 'theme-customizations-grp',
-                    'efp_pbibo_metabox_enable');
-}
+										'efp_pbibo_metabox_enable');
+	}
 
+	function efp_settings_callback(){
 
+		$option = get_option( 'efp_pbibo_metabox_enable' );
+		echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _('Enable pb_is_based_on metabox in post edit page') .'';
+	}
 
-function efp_settings_callback(){
-      	$option = get_option( 'efp_pbibo_metabox_enable' );
-        echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _('Enable pb_is_based_on metabox in post edit page') .'';
-  }
+	function efpb_canonical_section (){
+
+		add_settings_section( 'canonical_section', //tag section
+													'Canonical section', //name section
+													'',									 //function
+													'theme-customizations');	//page
+
+		add_option('efpb_canonical_metabox_enable', 0);
+
+		add_settings_field(	'efpb_canonical_metabox_enable', //parameter
+												'Enable father canonical link',  //Title
+												'canonical_checkbox', //function
+												'theme-customizations', //page
+												'canonical_section');
+
+		register_setting( 'theme-customizations-grp',
+											'efpb_canonical_metabox_enable');
+	}
+
+	/**
+	 *	Function: Book is a clone
+	**/
+	function book_is_a_clone (){
+		if ( is_plugin_active('autodescription/autodescription.php')){
+			if(get_current_blog_id() != 1){
+				global $wpdb;
+				$blog_id =get_current_blog_id();
+				$wp_blog_id_postmeta = "wp_".$blog_id."_postmeta";
+				$query_is_based_on = "SELECT * FROM `$wp_blog_id_postmeta` WHERE meta_key = 'pb_is_based_on'";
+				$count_is_based_on = $wpdb->get_results($query_is_based_on);
+				if (sizeof($count_is_based_on) > 0){
+					//book is a clone
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+
+	/**
+	 *	Function: Book is featured
+	**/
+	function book_is_a_featured (){
+		if(get_current_blog_id() != 1){
+			global $wpdb;
+			$blog_id =get_current_blog_id();
+			$wp_blog_id_options = "wp_".$blog_id."_options";
+			$query_is_original = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = 'efp_publisher_is_original'";
+			$result_is_original = $wpdb->get_var($query_is_original);
+			if ( $result_is_original == 1 ){
+				//book is featured
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function canonical_checkbox(){
+		$option = get_option( 'efpb_canonical_metabox_enable' );
+		echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
+	}
 
 /**
  * Function for determining if current site is a clone or not.
