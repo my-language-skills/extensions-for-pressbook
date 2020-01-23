@@ -25,7 +25,9 @@
    }
 
   /**
-   *  Function: return father's canonical URL
+  *  Function: return father's canonical URL
+  * @since             1.2.8
+  *
   **/
    function get_canonical_url(){
      global $wpdb;
@@ -38,7 +40,7 @@
  }
 
 // /**
-//  * FILTERS AND ACTIONS:
+//  * :
 // **/
 // //It works only with "The SEO Framework" plugin active
 //   add_action('wp_ajax_efpb_mark_canonical', 'efpb_mark_canonical', 1);
@@ -75,7 +77,7 @@
 //     update_blog_option( $blog_id, 'efp_publisher_canonical', 0 );
 //   }
 // }
-//
+// 
 // /**
 //  * Enqueue script
 //  * @since 1.2.8

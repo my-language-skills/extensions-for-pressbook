@@ -23,11 +23,8 @@ plugins/extensions-for-pressbooks/                                              
 │   └── index.php                                                               # → Empty index file php                      
 ├── post-metabox-pb_is_based_on                                                 # → Post metabox folder  
 │   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox file php
-├── TSF-modification                                                            # → Tsf modification folder
-│   ├── assets                                                                  # → Assets folder
-│   │   └── scripts                                                             # → Scripts folder
-│   │       └── canonical-admin.js                                              # → Canonical admin file js
-│   ├── efpb-tsf-modification.php                                               # → Tsf modification file php
+├── canonlcal                                                                   # → Canonical folder
+│   ├── efpb-canonical.php                                                      # → Canonical file php
 │   └── index.php                                                               # → Empty index file php
 ├── wp-assets                                                                   # → Wp assets folder
 │   ├── banner-772x250.png                                                      # → Banner file png
