@@ -18,7 +18,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
 	add_action('admin_init','efpb_init_settings_section');
 
-	if ( book_is_a_clone() && book_is_a_featured()){
+	if ( efp_is_site_clone() && book_is_a_featured()){
 		add_action('admin_init','efpb_canonical_section');
 	}
 }
@@ -71,26 +71,6 @@ function efpb_init_settings_section (){
 											'efpb_canonical_metabox_enable');
 	}
 
-	/**
-	 *	Function: Book is a clone
-	 * @since 1.2.8
-	**/
-	function book_is_a_clone (){
-		if ( is_plugin_active('autodescription/autodescription.php')){
-			if(get_current_blog_id() != 1){
-				global $wpdb;
-				$blog_id =get_current_blog_id();
-				$wp_blog_id_postmeta = "wp_".$blog_id."_postmeta";
-				$query_is_based_on = "SELECT * FROM `$wp_blog_id_postmeta` WHERE meta_key = 'pb_is_based_on'";
-				$count_is_based_on = $wpdb->get_results($query_is_based_on);
-				if (sizeof($count_is_based_on) > 0){
-					//book is a clone
-					return true;
-				}
-			}
-			return false;
-		}
-	}
 
 	/**
 	 *	Function: Book is featured
@@ -98,11 +78,7 @@ function efpb_init_settings_section (){
 	**/
 	function book_is_a_featured (){
 		if(get_current_blog_id() != 1){
-			global $wpdb;
-			$blog_id =get_current_blog_id();
-			$wp_blog_id_options = "wp_".$blog_id."_options";
-			$query_is_original = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = 'efp_publisher_is_original'";
-			$result_is_original = $wpdb->get_var($query_is_original);
+			$result_is_original = get_blog_option(null,'efp_publisher_is_original');
 			if ( $result_is_original == 1 ){
 				//book is featured
 				return true;

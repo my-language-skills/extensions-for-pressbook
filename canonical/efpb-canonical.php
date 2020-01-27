@@ -12,14 +12,19 @@
  * @package           extensions-for-pressbooks
  *
  **/
-
+$optionnes = get_blog_option(null,'efpb_canonical_metabox_enable', false );
+echo "....................................................................................";
+var_dump($optionnes);
+echo "....................................................................................";
+echo $optionnes;
 
  if (is_plugin_active('autodescription/autodescription.php')){
-   global $wpdb;
-   $blog_id =get_current_blog_id();
-   $wp_blog_id_options = "wp_".$blog_id."_options";
-   $query_canonical_metabox = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = 'efpb_canonical_metabox_enable'";
-   $result_canonical_metabox = $wpdb->get_var($query_canonical_metabox);
+   // global $wpdb;
+   // $blog_id =get_current_blog_id();
+   // $wp_blog_id_options = "wp_".$blog_id."_options";
+   // $query_canonical_metabox = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = 'efpb_canonical_metabox_enable'";
+   // $result_canonical_metabox = $wpdb->get_var($query_canonical_metabox);
+   $result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
    if ( $result_canonical_metabox == 1 ){
      add_filter( 'the_seo_framework_rel_canonical_output', 'get_canonical_url' );
    }
@@ -30,11 +35,12 @@
   *
   **/
    function get_canonical_url(){
-     global $wpdb;
-     $blog_id =get_current_blog_id();
-     $wp_blog_id_options = "wp_".$blog_id."_options";
-     $query_is_original = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = '_transient_pb_book_source_url'";
-     $result_is_original = $wpdb->get_var($query_is_original);
+     // global $wpdb;
+     // $blog_id =get_current_blog_id();
+     // $wp_blog_id_options = "wp_".$blog_id."_options";
+     // $query_is_original = "SELECT option_value FROM `$wp_blog_id_options` WHERE option_name = '_transient_pb_book_source_url'";
+     // $result_is_original = $wpdb->get_var($query_is_original);
+     $result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
      return $result_is_original;
    }
  }
@@ -77,7 +83,7 @@
 //     update_blog_option( $blog_id, 'efp_publisher_canonical', 0 );
 //   }
 // }
-// 
+//
 // /**
 //  * Enqueue script
 //  * @since 1.2.8

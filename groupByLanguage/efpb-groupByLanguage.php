@@ -15,6 +15,7 @@
 * This function create a new dropdown menu and it shows only available languages.
 * If there's no books about a language, this language not appear in the dropdown menu.
 */
+
 add_action( 'restrict_manage_sites', 'efppb_add_language_dropdown_menu' );
 function efppb_add_language_dropdown_menu( $which ) {
     if ( 'top' !== $which ) {  // the dropdown menu must be on the top
@@ -26,7 +27,7 @@ function efppb_add_language_dropdown_menu( $which ) {
 * The query that return the list with all the languages in which at least one book has been written.
 */
     global $wpdb;
-    $languages_from_db = $wpdb->get_results( "SELECT DISTINCT meta_value FROM `wp_blogmeta` WHERE meta_key = 'pb_language'");
+    $languages_from_db = $wpdb->get_results( "SELECT DISTINCT meta_value FROM $wpdb->blogmeta WHERE meta_key = 'pb_language'");
 /**
 * The list with all the languages of Pressbooks books.
 */
@@ -93,10 +94,10 @@ function efppb_add_language_dropdown_menu( $which ) {
       if($flag == 0) unset($dropdown_languages[$key]);
     }
 
-    $requested_cuisine = isset( $_GET['language'] ) ? wp_unslash( $_GET['language'] ) : '';
+    $requested_language = isset( $_GET['language'] ) ? wp_unslash( $_GET['language'] ) : '';
 
     foreach ( $dropdown_languages as $language => $label ) {
-        $selected = selected( $language, $requested_cuisine, false );          //add all languages to the dropdown menu
+        $selected = selected( $language, $requested_language, false );          //add all languages to the dropdown menu
         printf( '<option%s>%s</option>', $selected, $label );                 //and print the full name of language
     }
     echo '</select>';
