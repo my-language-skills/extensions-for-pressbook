@@ -5,6 +5,9 @@ plugins/extensions-for-pressbooks/                                              
 │   ├── efpb-admin-settings.php                                                 # → Admin settings file php
 │   ├── efpb-theme-customizations.php                                           # → Theme Customization file php
 │   └── index.php                                                               # → Empty index file php                    
+├── canonical                                                                   # → Canonical folder
+│   ├── efpb-canonical.php                                                      # → Canonical file php
+│   └── index.php                                                               # → Empty index file php                       
 ├── default                                                                     # → Default themes and settings folder
 │   ├── efpb-default-settings.php                                               # → Default settings file php
 │   ├── efpb-default-themes.php                                                 # → Default themes file php
