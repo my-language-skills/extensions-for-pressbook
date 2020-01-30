@@ -19,7 +19,7 @@ The plugin offer the following functionalities
 
 ## Canonical
 
-Canonical package provides network administrators with ability to choose canonical link of cloned books (original canonical url or father's canonical url). This extension works only if "The SEO Framework" plugin is active. It is done with a checkbox in Appearance -> EFP Customization page, after activation of a plugin you will have a new checkbox there (if available) to set book's Canonical Url'.
+Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. A checkbox is now available in Appearance -> EFP Customization page of the clone. If the clone is featured the checkbox is focusable and it's possible to make the choice, otherwise the checkbox is not focusable and the canonical URL is the original canonical URL of the clone by default.
 
 
 ## Original Mark
@@ -77,7 +77,10 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 ### Now
 ## 0.xx
-
+* **ADDITIONS**
+  * ADDED Canonical functionality that creates a checkbox to set the canonical URL of the book
+* **MODIFICATIONS**
+  * efpb-admin-settings create new canonical section in EFP -> Customization
 ### Soon
 
 ### Later
