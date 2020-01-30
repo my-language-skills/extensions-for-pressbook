@@ -17,10 +17,6 @@ This plugin provides tiny extensions for main functionality of pressbooks.
 
 The plugin offer the following functionalities
 
-## Canonical
-
-Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. A checkbox is available in Appearance -> EFP Customization page if the current book is a clone. If is also featured the checkbox is focusable and it's possible to make the choice, otherwise the checkbox is not focusable and the canonical URL is the one of the father by default.
-
 ## Original Mark
 
 Original Mark package provides network administrators with ability to mark books of original publisher. It is done with a checkbox in `/wp-admin/network/sites.php` page, after activation of a plugin you will have new column there with name 'Featured Books'.
@@ -38,6 +34,11 @@ pb_is_based_on metadata save the URL of the source of the content if the book is
 >
 >Insert new URL:
 >[ ]
+
+## Canonical
+
+Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. It creates a checkbox available in Appearance -> EFP Customization page if the current book is a clone, otherwise nothing appears. If the clone is also featured, the checkbox is focusable and it's possible to make the choice otherwise the checkbox is not focusable and the canonical URL is the one of the father by default.
+
 
 ## default theme
 
