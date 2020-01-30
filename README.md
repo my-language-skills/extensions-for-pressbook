@@ -19,8 +19,7 @@ The plugin offer the following functionalities
 
 ## Canonical
 
-Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. A checkbox is now available in Appearance -> EFP Customization page of the clone. If the clone is featured the checkbox is focusable and it's possible to make the choice, otherwise the checkbox is not focusable and the canonical URL is the original canonical URL of the clone by default.
-
+Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. A checkbox is now available in Appearance -> EFP Customization page of the clone. If the clone is featured the checkbox is focusable and it's possible to make the choice, otherwise the checkbox is not focusable and the canonical URL is the one of the clone by default.
 
 ## Original Mark
 
@@ -47,7 +46,7 @@ As plugin is supposed to be used with our [child theme](https://github.com/my-la
 ## Installation
 
 1. Clone (or copy) this repository folder `extensions-for-pressbooks` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' screen in WordPress
+2. Activate the plugin through the 'Plugins' screen in WordPress
 
 ## Upgrades
 
@@ -91,7 +90,6 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### 1.2.7
 * **REMOVED**
   * Deregister dashicons REMOVED
-* User can choose canonical links of cloned books (original/father's url)
 
 #### 1.2.6
 * **ADDITIONS**
