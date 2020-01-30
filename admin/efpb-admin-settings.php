@@ -65,7 +65,7 @@ function efpb_init_settings_section (){
 		add_option('efpb_canonical_metabox_enable', 0);
 
 		add_settings_field(	'efpb_canonical_metabox_enable', 					// Parameter
-												'Enable father canonical link',  					// Title
+												'Father canonical URL',				  					// Title
 												'canonical_checkbox', 										// Function
 												'theme-customizations', 									// Page
 												'canonical_section');
