@@ -51,32 +51,36 @@ function efpb_init_settings_section (){
 
 	/**
 	 *	Function: Canonical section
-	 * @since 1.2.8
+	 *
+	 * 	@since 1.2.8
+	 *
 	**/
 	function efpb_canonical_section (){
 
-		add_settings_section( 'canonical_section', //tag section
-													'Canonical section', //name section
-													'',									 //function
-													'theme-customizations');	//page
+		add_settings_section( 'canonical_section', 										// Tag section
+													'Canonical section', 										// Name section
+													'',									 										// Function
+													'theme-customizations');								// Page
 
 		add_option('efpb_canonical_metabox_enable', 0);
 
-		add_settings_field(	'efpb_canonical_metabox_enable', //parameter
-												'Enable father canonical link',  //Title
-												'canonical_checkbox', //function
-												'theme-customizations', //page
+		add_settings_field(	'efpb_canonical_metabox_enable', 					// Parameter
+												'Enable father canonical link',  					// Title
+												'canonical_checkbox', 										// Function
+												'theme-customizations', 									// Page
 												'canonical_section');
 
 		register_setting( 'theme-customizations-grp',
 											'efpb_canonical_metabox_enable');
 	}
 
-
 	/**
 	 *	Function: Book is featured
+	 *
 	 * 	Return true if the book is featured else return false
-	 * 	@since 1.2.8
+	 *
+	 *	@since 1.2.8
+	 *
 	**/
 	function book_is_a_featured (){
 		//if this is no the main site
@@ -93,11 +97,15 @@ function efpb_init_settings_section (){
 
 	/**
 	 *	Function: Canonical checkbox
-	 *	Make the checkbox in EFP Customization
+	 *
+	 *	Create the checkbox in EFP Customization
 	 *	If book is featured the checkbox is available else it is not focusable
-	 * 	@since 1.2.8
+	 *
+	 *	@since 1.2.8
+	 *
 	**/
 	function canonical_checkbox(){
+		//Get value from option DB
 		$option = get_option( 'efpb_canonical_metabox_enable' );
 		//If book is featured print canonical_checkbox focusable
 		if(book_is_a_featured()){
