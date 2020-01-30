@@ -2,10 +2,11 @@
 /**
  * Extensions for PressBooks / Canonical
  *
- * This file create a functionality of Extensions for PressBooks Plugin. It works only
- * with "The SEO Framework" plugin.
- * If in Appearance -> EFP Customization the checkbox is saved as ON the canonical link is
- * the father's URL. Otherwise "The SEO Framework" works normally.
+ * This file create a functionality of Extensions for PressBooks Plugin.
+ * It works only with "The SEO Framework" plugin active.
+ * If in Appearance -> EFP Customization the canonical checkbox is turned ON
+ * the canonical link will be the father's URL.
+ * Otherwise "The SEO Framework" works normally.
  *
  * @link              URL
  * @since             1.2.8
