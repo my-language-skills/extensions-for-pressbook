@@ -37,8 +37,11 @@ pb_is_based_on metadata save the URL of the source of the content if the book is
 
 ## Canonical
 
-Canonical package provides network administrators with ability to choose canonical URL of cloned books (clone's canonical URL or father's canonical URL). This functionality works only with "The SEO Framework" plugin active. It creates a checkbox available in Appearance -> EFP Customization page if the current book is a clone, otherwise nothing appears. If the clone is also featured, the checkbox is focusable and it's possible to make the choice otherwise the checkbox is not focusable and the canonical URL is the one of the father by default.
-
+Canonical package provides network administrators with ability to choose canonical URL of cloned books.
+This functionality works only with "The SEO Framework" plugin active.
+If book is original -> The SEO framework canonical url of pages
+If book is a clone -> checkbox available in Appearance -> EFP Customization, the canonical is the parent page.
+If clone is also featured -> checkbox focusable (canonical to the page or the parent page).
 
 ## default theme
 
