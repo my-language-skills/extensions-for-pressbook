@@ -23,6 +23,11 @@
      //Canonical URL = father's URL
      add_filter( 'the_seo_framework_rel_canonical_output', 'get_canonical_url' );
    }
+   //If book is not featured but still be a clone
+   if ( !book_is_a_featured2() && efp_is_site_clone()){
+     //Canonical URL = father's URL
+     add_filter( 'the_seo_framework_rel_canonical_output', 'get_canonical_url' );
+   }
 
   /**
   * Function: return father's canonical URL
