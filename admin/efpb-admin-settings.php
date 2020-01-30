@@ -18,7 +18,8 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
 	add_action('admin_init','efpb_init_settings_section');
 
-	if ( efp_is_site_clone() && book_is_a_featured()){
+//If book is a clone add canonical section in EFP Customization else nothing happens
+	if ( efp_is_site_clone()) {
 		add_action('admin_init','efpb_canonical_section');
 	}
 }
@@ -74,13 +75,16 @@ function efpb_init_settings_section (){
 
 	/**
 	 *	Function: Book is featured
-	 * @since 1.2.8
+	 * 	Return true if the book is featured else return false
+	 * 	@since 1.2.8
 	**/
 	function book_is_a_featured (){
+		//if this is no the main site
 		if(get_current_blog_id() != 1){
+			//get value from DB
 			$result_is_original = get_blog_option(null,'efp_publisher_is_original');
+			//if it is featured
 			if ( $result_is_original == 1 ){
-				//book is featured
 				return true;
 			}
 		}
@@ -89,11 +93,18 @@ function efpb_init_settings_section (){
 
 	/**
 	 *	Function: Canonical checkbox
-	 * @since 1.2.8
+	 *	Make the checkbox in EFP Customization
+	 *	If book is featured the checkbox is available else it is not focusable
+	 * 	@since 1.2.8
 	**/
 	function canonical_checkbox(){
 		$option = get_option( 'efpb_canonical_metabox_enable' );
-		echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
+		if(book_is_a_featured()){
+			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
+		}
+		else{
+			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" disabled="disabled" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Book is not Featured!") .'';
+		}
 	}
 
 /**
