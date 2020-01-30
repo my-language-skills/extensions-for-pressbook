@@ -30,8 +30,13 @@
    }
  }
 
- function book_is_a_featured2 (){
-   if(get_current_blog_id() != 1){
+ /**
+ *  Function: return true if book is featured
+ * @since             1.2.8
+ *
+ **/
+  function book_is_a_featured2 (){
+    if(get_current_blog_id() != 1){
      $result_is_original = get_blog_option(null,'efp_publisher_is_original');
      if ( $result_is_original == 1 ){
        //book is featured
