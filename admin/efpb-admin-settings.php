@@ -99,11 +99,14 @@ function efpb_init_settings_section (){
 	**/
 	function canonical_checkbox(){
 		$option = get_option( 'efpb_canonical_metabox_enable' );
+		//If book is featured print canonical_checkbox focusable
 		if(book_is_a_featured()){
 			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
 		}
+		//Else print canonical_checkbox not focusable (canonical functionality works like checkbox OFF) but the info keeps exist in the DB
 		else{
-			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" disabled="disabled" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Book is not Featured!") .'';
+			echo "Warning: the book is not featured!<br>";
+			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" disabled="disabled" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
 		}
 	}
 
