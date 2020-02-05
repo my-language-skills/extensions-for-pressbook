@@ -10,7 +10,7 @@
  * @subpackage Functionality/Theme-custommizations-page
  * @since 1.2.4 (when the file was introduced)
  */
-
+ 
 add_action("admin_menu", "add_theme_menu_item");
 
  function add_theme_menu_item() {
@@ -52,7 +52,6 @@ add_action("admin_menu", "add_theme_menu_item");
   <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
 </div>
 <?php } ?>
-
  			</form>
  </div>
  <?php }

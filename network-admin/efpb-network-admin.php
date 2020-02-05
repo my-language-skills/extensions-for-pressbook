@@ -29,58 +29,43 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
 /**
  * Render page sections.
  *
- * @since 1.2.4 MODIFIED 1.2.5
+ * @since 1.2.4
+ * MODIFIED 1.2.5
+ * MODIFIED 1.2.8
  *
  */
  function efp_render_network_settings() {
  ?>
    <div class="wrap">
        <h1>Extensions for Pressbooks network settings</h1>
+       <!-- form with $unistall_checkbox for tfp -->
+       <form method="post" action="" >
+         <?php
+         //add section
+        do_settings_sections("tfp-network-settings-page");
+            settings_fields("tfp-network-settings-page-grp");
+            submit_button();
+          ?>
 
        <div class="wrap">
-         <?php if (isset($_GET['setting-updated']) && $_GET['setting-updated']) { ?>
+         <!-- setting saved message -->
+         <?php if (isset($_POST['tfp_uninstall_save']) ) { ?>
          <div class="notice notice-success is-dismissible">
             <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
           </div>
-          <?php }  ?>
-       </div>
-
-       <form method="post" action="edit.php?action=efp-update">
-         <?php
-          wp_nonce_field( 'efp-network-validate' );
-
-          // Display TRANSLATIONS section on the page
-          do_settings_sections("tfp-network-settings-page");
-
-          submit_button();
+          <?php }
+          // update db -> if checkbox is checked tfp_uninstall_save = 1
+          if( $_POST['tfp_uninstall_save'] == 1) {
+            update_option( 'tfp_uninstall_save', 1 );
+          }
+          // update db -> if checkbox is not checked tfp_uninstall_save = 0
+          if( $_POST['tfp_uninstall_save'] == 0 ){
+            update_option( 'tfp_uninstall_save', 0);
+          }
+          // if( $_POST['tfp_uninstall_save'] == 0) {
+          //   update_option( 'tfp_uninstall_save', 0);
+          // }
           ?>
-       </form>
+      </form>
     </div>
- <?php }
-
-add_action( 'network_admin_edit_efp-update', 'efp_save_settings');
-
-/**
- * Save network form settings
- *
- * @since 1.2.4
- *
- */
- function efp_save_settings(){
-   check_admin_referer( 'efp-network-validate' );
-
-   //Following two rows are responsible for saving form data of the TRANSLATIONS plugin.
-
-   //Add validate control
-   if(isset($_POST['tfp_uninstall_save'])){
-
-     //Add sanitize control
-     sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']);
-
-     update_site_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save'] );
-   }
-
-   wp_redirect(add_query_arg(array('page' => 'efp-network-settings-page', 'setting-updated' => 'true'), network_admin_url('settings.php')));
-
-   exit();
- }
+ <?php  }

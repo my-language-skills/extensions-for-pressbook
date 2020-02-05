@@ -81,6 +81,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Now
 ## 0.xx
 * **ADDITIONS**
+  * UPDATE network-admin.php
   * ADDED Canonical functionality that creates a checkbox to set the canonical URL of the book
 * **MODIFICATIONS**
   * efpb-admin-settings create new canonical section in EFP -> Customization
