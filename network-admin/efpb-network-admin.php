@@ -51,11 +51,12 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
          <!-- setting saved message -->
          <?php
           // update db -> if checkbox is checked tfp_uninstall_save = 1
-          if( $_POST['tfp_uninstall_save'] == 1) {
+          if( sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']) == 1 ){
             update_option( 'tfp_uninstall_save', 1 );
           }
           // update db -> if checkbox is not checked tfp_uninstall_save = 0
-          if( $_POST['tfp_uninstall_save'] == 0 ){
+          //sanitize_option( ‘tfp_uninstall_save’, $_POST[‘tfp_uninstall_save’]) == 0
+          if( sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']) == 0 ){
             update_option( 'tfp_uninstall_save', 0);
           }
           ?>
