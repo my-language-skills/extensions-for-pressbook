@@ -86,8 +86,10 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 * **MODIFICATIONS**
   * efpb-admin-settings create new canonical section in EFP -> Customization
-  * Unistall Translation section is called in tfp plugin
 
+* **REMOVED**
+  * Unistall translation section is mooved to Translations for Pressbooks
+  
 ### Soon
 
 ### Later
@@ -98,7 +100,8 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### 1.2.7
 * **REMOVED**
   * Deregister dashicons REMOVED
-  * Unistall translation section is now in tfp plugin
+  * Unistall translation section is now in Translation for Pressbooks plugin
+
 #### 1.2.6
 * **ADDITIONS**
    * Added drop down menu to choose books written in a specific language.
