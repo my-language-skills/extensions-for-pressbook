@@ -23,13 +23,12 @@ plugins/extensions-for-pressbooks/                                              
 │   │   └── scripts                                                             # → Scripts folder
 │   │       └── original-mark-admin.js                                          # → Original mark admin file js
 │   ├── efpb-original-mark.php                                                  # → Original mark file php
-│   └── index.php                                                               # → Empty index file php                      
+│   └── index.php                                                               # → Empty index file php     
+├── post                                                                        # → Post folder
+│   └── efpb-post.php                                                           # → Post file php
 ├── post-metabox-pb_is_based_on                                                 # → Post metabox folder  
 │   └── efpb-post-metabox-pb_is_based_on.php                                    # → Post metabox file php
-├── canonlcal                                                                   # → Canonical folder
-│   ├── efpb-canonical.php                                                      # → Canonical file php
-│   └── index.php                                                               # → Empty index file php
-├── wp-assets                                                                   # → Wp assets folder
+├── wp-assets                                                                   # → Wordpress assets folder
 │   ├── banner-772x250.png                                                      # → Banner file png
 │   ├── banner-1544x500-rtl.png                                                 # → Banner file png
 │   ├── banner-1544x500.png                                                     # → Banner file png
@@ -37,10 +36,10 @@ plugins/extensions-for-pressbooks/                                              
 │   ├── icon-256x256.png                                                        # → Icon file png
 │   ├── screenshot-1.png                                                        # → Screenshot file png  
 │   └── screenshot-2.png                                                        # → Screenshot file png                    
-├── .editorconfig                                                               # →                     
-├── .gitattributes                                                              # →                     
-├── .gitignore                                                                  # →                     
-├── extensions-for-pressbooks.php                                               # → Main function of plugin file php                    
+├── .editorconfig                                                                                    
+├── .gitattributes                                                                                   
+├── .gitignore                                                                                       
+├── extensions-for-pressbooks.php                                               # → Main plugin file php                    
 ├── index.php                                                                   # → Empty index file php                    
 ├── LICENSE.md                                                                  # → License file md                    
 ├── LICENSE.txt                                                                 # → License file txt                    

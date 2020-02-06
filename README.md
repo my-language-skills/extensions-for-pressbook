@@ -98,12 +98,13 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### 1.2.7
 * **REMOVED**
   * Deregister dashicons REMOVED
-
+  * Unistall translation section is now in tfp plugin
 #### 1.2.6
 * **ADDITIONS**
    * Added drop down menu to choose books written in a specific language.
    * Now all languages are available to be choosen
    * Added new functionality: now in the dropdown menu are shown only available languages and not all.
+
 #### 1.2.5
 * **ADDITIONS**
    * EFP Customization settings section and setting field added to site level for this plugin added. (to the "platform" created in previous version).

@@ -62,9 +62,6 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
           if( $_POST['tfp_uninstall_save'] == 0 ){
             update_option( 'tfp_uninstall_save', 0);
           }
-          // if( $_POST['tfp_uninstall_save'] == 0) {
-          //   update_option( 'tfp_uninstall_save', 0);
-          // }
           ?>
       </form>
     </div>
