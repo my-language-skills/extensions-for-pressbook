@@ -49,11 +49,7 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
 
        <div class="wrap">
          <!-- setting saved message -->
-         <?php if (isset($_POST['tfp_uninstall_save']) ) { ?>
-         <div class="notice notice-success is-dismissible">
-            <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
-          </div>
-          <?php }
+         <?php
           // update db -> if checkbox is checked tfp_uninstall_save = 1
           if( $_POST['tfp_uninstall_save'] == 1) {
             update_option( 'tfp_uninstall_save', 1 );
