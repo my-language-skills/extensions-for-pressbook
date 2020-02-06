@@ -7,7 +7,7 @@
  * list only the books in a specific language (selected in the dropdown menu).
  *
  * @link              URL
- * @since             ???
+ * @since             1.2.6
  * @package           extensions-for-pressbooks
  */
 
@@ -70,7 +70,6 @@ function efppb_add_language_dropdown_menu( $which ) {
   					'vi'     => __( 'Vietnamese', 'groupByLanguagePlugin' ),
   					'zh'     => __( 'Chinese', 'groupByLanguagePlugin' )
             /*       OTHERS LANGUAGES NOT AVAILABLE YET:
-  					'ka'     => __( 'Georgian', 'groupByLanguagePlugin' ),
   					'lu'     => __( 'Luba-Katanga', 'groupByLanguagePlugin' ),
   					'ps'     => __( 'Pushto; Pashto', 'groupByLanguagePlugin' ),
   					'rn'     => __( 'Rundi', 'groupByLanguagePlugin' ),
@@ -180,7 +179,6 @@ function translate_choice($args){
 					'vi'     => 'Vietnamese',
 					'zh'     => 'Chinese'
           //OTHERS LANGUAGES
-          // 'ka'     => 'Georgian', //not attribut flag icons right now
 					// 'lu'     => 'Luba-Katanga', //not attribut flag icons right now
 					// 'ps'     => 'Pushto; Pashto', //not attribut flag icons right now
 					// 'rn'     => 'Rundi', //not attribut flag icons right now
