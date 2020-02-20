@@ -5,7 +5,7 @@
 * Tags: wordpress, multisite, pressbooks
 * Tested up to: WP 5.2.4
 * Tested UP:  Pressbooks 5.9.5
-* Stable tag: 1.2.5
+* Stable tag: 1.2.8
 * License:  GPL 3.0
 * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -89,7 +89,7 @@ If you need some help with understanding on how plugin was structured, take a lo
 
 * **REMOVED**
   * Unistall translation section is mooved to Translations for Pressbooks
-  
+
 ### Soon
 
 ### Later
@@ -97,6 +97,10 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+### 1.2.8
+* **ADDITIONS**
+  * New blogs use default permalink (blogname)
+
 ### 1.2.7
 * **REMOVED**
   * Deregister dashicons REMOVED

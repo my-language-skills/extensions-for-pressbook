@@ -16,7 +16,7 @@
  * Plugin Name:       Extensions for PressBooks
  * Plugin URI:        https://github.com/my-language-skills/extensions-for-pressbooks
  * Description:       Small enhancement for Pressbooks main plugin
- * Version:           1.2.7
+ * Version:           1.2.8
  * Pressbooks tested up to: 5.10
  * Author:            My Language Skills team
  * Author URI:        https://github.com/my-language-skills/
@@ -42,6 +42,8 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
     include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
     include_once plugin_dir_path( __FILE__ ) . "canonical/efpb-canonical.php";
+    include_once plugin_dir_path( __FILE__ ) . "permalinks/efpb-permalinks.php";
+
 
 		//loading network settings only for multisite installation
 		if (is_multisite()){
