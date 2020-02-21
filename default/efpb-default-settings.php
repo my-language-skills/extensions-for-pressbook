@@ -13,7 +13,7 @@
  */
 
 /**
- * Force new websites to use books4languages-child-theme-for-pressbooks
+ * Force new websites to use default blog description
  *
  * @since 1.2.5
  *

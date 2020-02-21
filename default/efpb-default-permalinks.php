@@ -9,14 +9,14 @@
  *
  * @package extensions-for-pressbooks
  * @subpackage Functionality/Permalinks
- * @since x.x.x (when the file was introduced)
+ * @since 1.0 (when the file was introduced)
  */
 
 
 /**
  * File responsible for adding the new configuration to new sites
  */
-add_action( 'wpmu_new_blog', function( $blog_id ){
+add_action( 'wp_insert_site', function( $blog_id ){
 
 switch_to_blog( $blog_id );
 global $wp_rewrite;

@@ -30,19 +30,20 @@
 
 defined ("ABSPATH") or die ("No script assholes!");
 
-include_once(ABSPATH.'wp-admin/includes/plugin.php');
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to modify to something else or to delete, i do not know what´s that
 
   if(is_plugin_active('pressbooks/pressbooks.php')){
 
 		include_once plugin_dir_path( __FILE__ ) . "default/efpb-default-theme.php";
     include_once plugin_dir_path( __FILE__ ) . "default/efpb-default-settings.php";
+    include_once plugin_dir_path( __FILE__ ) . "default/efpb-default-permalinks.php";
 		include_once plugin_dir_path( __FILE__ ) . "original-mark/efpb-original-mark.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-theme-customizations.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-admin-settings.php";
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
     include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
     include_once plugin_dir_path( __FILE__ ) . "canonical/efpb-canonical.php";
-    include_once plugin_dir_path( __FILE__ ) . "permalinks/efpb-permalinks.php";
 
 
 		//loading network settings only for multisite installation
