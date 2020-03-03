@@ -17,7 +17,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbooks/pressbooks.php')){
 	add_action('admin_init','efpb_init_settings_section');
-
+	
 //If book is a clone add canonical section in EFP Customization else nothing happens
 	if ( efp_is_site_clone()) {
 		add_action('admin_init','efpb_canonical_section');
@@ -27,26 +27,34 @@ if ((1 != get_current_blog_id()	|| !is_multisite()) && is_plugin_active('pressbo
 function efpb_init_settings_section (){
 
 	add_settings_section( 'extensions_section',
-												'Extensions section',
+												__('Extensions section','extensions-for-pressbooks'),
 												'',
 												'theme-customizations');
 
   add_option('efp_pbibo_metabox_enable', 0);
 
 	add_settings_field(	'efp_pbibo_metabox_enable',
-											'Source and cloned books',
+											__('Source and cloned books','extensions-for-pressbooks'),
 											'efp_settings_callback',
 											'theme-customizations',
 											'extensions_section');
 
   register_setting( 'theme-customizations-grp',
-										'efp_pbibo_metabox_enable');
+										'efp_pbibo_metabox_enable','sanitize');
 	}
+	
+	/**
+	 * To sanitize the input of the checkbox before updating to database
+	 */
+	function sanitize($input)
+	{
+		return sanitize_text_field($input && $input!='' ? $input : '');
 
+	}
+	
 	function efp_settings_callback(){
-
 		$option = get_option( 'efp_pbibo_metabox_enable' );
-		echo '<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _('Enable pb_is_based_on metabox in post edit page') .'';
+		_e('<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __('Enable pb_is_based_on metabox in post edit page','extensions-for-pressbooks') .'');
 	}
 
 	/**
@@ -58,20 +66,20 @@ function efpb_init_settings_section (){
 	function efpb_canonical_section (){
 
 		add_settings_section( 'canonical_section', 										// Tag section
-													'Canonical section', 										// Name section
+													__('Canonical section','extensions-for-pressbooks'), 										// Name section
 													'',									 										// Function
 													'theme-customizations');								// Page
 
 		add_option('efpb_canonical_metabox_enable', 0);
 
 		add_settings_field(	'efpb_canonical_metabox_enable', 					// Parameter
-												'Father canonical URL',				  					// Title
+												__('Father canonical URL','extensions-for-pressbooks'),				  					// Title
 												'canonical_checkbox', 										// Function
 												'theme-customizations', 									// Page
 												'canonical_section');
 
 		register_setting( 'theme-customizations-grp',
-											'efpb_canonical_metabox_enable');
+											'efpb_canonical_metabox_enable','sanitize');
 	}
 
 	/**
@@ -86,7 +94,7 @@ function efpb_init_settings_section (){
 		//if this is no the main site
 		if(get_current_blog_id() != 1){
 			//get value from DB
-			$result_is_original = get_blog_option(null,'efp_publisher_is_original');
+			$result_is_original = sanitize_text_field(get_blog_option(null,'efp_publisher_is_original'));
 			//if it is featured
 			if ( $result_is_original == 1 ){
 				return true;
@@ -109,12 +117,12 @@ function efpb_init_settings_section (){
 		$option = get_option( 'efpb_canonical_metabox_enable' );
 		//If book is featured print canonical_checkbox focusable
 		if(book_is_a_featured()){
-			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
+			_e('<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __("Enable father's canonical URL",'extensions-for-pressbooks') .'');
 		}
 		//Else print canonical_checkbox not focusable (canonical functionality works like checkbox OFF) but the info keeps exist in the DB
 		else{
-			echo "Warning: the book is not featured!<br>";
-			echo '<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" disabled="disabled" type="checkbox" value="1" class="code" ' . checked( 1, $option, false ) . ' /> '. _("Enable father's canonical URL") .'';
+			_e("Warning: the book is not featured!<br>");
+			_e('<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" disabled="disabled" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __("Enable father's canonical URL",'extensions-for-pressbooks') .'');
 		}
 	}
 
@@ -129,12 +137,12 @@ function efp_is_site_clone(){
 
     $table_name = $wpdb->prefix . 'posts'; //set prefix of the table
     $book_info_id = $wpdb->get_row("SELECT ID FROM $table_name WHERE post_name = 'book-information';"); //get ID of the book_info post
-
+	
     if ($book_info_id){
       $book_info_id = get_object_vars($book_info_id); //extract content of the object
       $book_info_id = reset($book_info_id);           // get first value of the object
-      $bookinfo_basedon_url = get_post_meta( $book_info_id, 'pb_is_based_on', true ); //based on this ID find book_info post_meta
-
+	  //$bookinfo_basedon_url = get_post_meta( $book_info_id, 'pb_is_based_on', true ); //based on this ID find book_info post_meta
+	  $bookinfo_basedon_url = sanitize_meta('pb_is_based_on',get_post_meta( $book_info_id, 'pb_is_based_on', true ),'url');
       // if it has 'pb_is_post_meta' meta_key return true
       if (!empty($bookinfo_basedon_url)){
           return true;

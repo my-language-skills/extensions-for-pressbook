@@ -25,3 +25,4 @@
  	restore_current_blog();
  }
  add_action('wpmu_new_blog', 'efpb_set_default_tagline' );
+//possible fix to a deprecated hook -> insert_new_site

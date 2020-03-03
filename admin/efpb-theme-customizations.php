@@ -54,4 +54,5 @@ add_action("admin_menu", "add_theme_menu_item");
 <?php } ?>
  			</form>
  </div>
- <?php }
+ <?php
+ }
