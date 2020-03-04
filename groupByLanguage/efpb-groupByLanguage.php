@@ -15,7 +15,6 @@
 * This function create a new dropdown menu and it shows only available languages.
 * If there's no books about a language, this language not appear in the dropdown menu.
 */
-
 add_action( 'restrict_manage_sites', 'efppb_add_language_dropdown_menu' );
 function efppb_add_language_dropdown_menu( $which ) {
     if ( 'top' !== $which ) {  // the dropdown menu must be on the top
@@ -91,14 +90,14 @@ function efppb_add_language_dropdown_menu( $which ) {
         if($key == $lang->meta_value) $flag = 1;
       }
       if($flag == 0) unset($dropdown_languages[$key]);
-    }
-
-    $requested_language = isset( $_GET['language'] ) ? wp_unslash( $_GET['language'] ) : '';
-
+	}
+	$language_sanitized = sanitize_text_field($_GET['language']);
+    //$requested_language = isset( $_GET['language'] ) ? wp_unslash( $_GET['language'] ) : '';
+	$requested_language = isset( $language_sanitized ) ? wp_unslash( $language_sanitized ) : '';
     foreach ( $dropdown_languages as $language => $label ) {
         $selected = selected( $language, $requested_language, false );          //add all languages to the dropdown menu
         printf( '<option%s>%s</option>', $selected, $label );                 //and print the full name of language
-    }
+	}
     echo '</select>';
     return;
 }
@@ -109,13 +108,14 @@ function efppb_add_language_dropdown_menu( $which ) {
 */
 add_filter( 'ms_sites_list_table_query_args', 'efpm_sites_with_language_choosen_in_dropdown_menu' );
 function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
-    if ( empty( $_GET['language' ] ) ) {
+	
+    if ( empty( sanitize_text_field($_GET['language'] )) ) {
         return $args;
     }
 
     $meta_query = array(
         'key'   => 'pb_language',
-        'value' => translate_choice(wp_unslash( $_GET['language' ] ))
+        'value' => translate_choice(wp_unslash( sanitize_text_field($_GET['language']) ))
     );
 
     if ( isset( $args['meta_query'] ) ) {
