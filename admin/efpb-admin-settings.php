@@ -53,7 +53,8 @@ function efpb_init_settings_section (){
 	}
 	
 	function efp_settings_callback(){
-		$option = get_option( 'efp_pbibo_metabox_enable' );
+		$option = sanitize_option('efp_pbibo_metabox_enable',get_option( 'efp_pbibo_metabox_enable' ));
+		//$option = get_option( 'efp_pbibo_metabox_enable' );
 		_e('<input name="efp_pbibo_metabox_enable" id="efp_pbibo_metabox_enable" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __('Enable pb_is_based_on metabox in post edit page','extensions-for-pressbooks') .'');
 	}
 
@@ -94,7 +95,8 @@ function efpb_init_settings_section (){
 		//if this is no the main site
 		if(get_current_blog_id() != 1){
 			//get value from DB
-			$result_is_original = sanitize_text_field(get_blog_option(null,'efp_publisher_is_original'));
+			//$result_is_original = sanitize_text_field(get_blog_option(null,'efp_publisher_is_original'));
+			$result_is_original = sanitize_option(null,(get_blog_option(null,'efp_publisher_is_original')));
 			//if it is featured
 			if ( $result_is_original == 1 ){
 				return true;
@@ -114,7 +116,8 @@ function efpb_init_settings_section (){
 	**/
 	function canonical_checkbox(){
 		//Get value from option DB
-		$option = get_option( 'efpb_canonical_metabox_enable' );
+		//$option = get_option( 'efpb_canonical_metabox_enable' );
+		$option = sanitize_option('efpb_canonical_metabox_enable',get_option( 'efpb_canonical_metabox_enable' ));
 		//If book is featured print canonical_checkbox focusable
 		if(book_is_a_featured()){
 			_e('<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __("Enable father's canonical URL",'extensions-for-pressbooks') .'');
@@ -143,6 +146,7 @@ function efp_is_site_clone(){
       $book_info_id = reset($book_info_id);           // get first value of the object
 	  //$bookinfo_basedon_url = get_post_meta( $book_info_id, 'pb_is_based_on', true ); //based on this ID find book_info post_meta
 	  $bookinfo_basedon_url = sanitize_meta('pb_is_based_on',get_post_meta( $book_info_id, 'pb_is_based_on', true ),'url');
+	  
       // if it has 'pb_is_post_meta' meta_key return true
       if (!empty($bookinfo_basedon_url)){
           return true;
