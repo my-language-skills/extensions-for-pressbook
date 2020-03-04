@@ -40,18 +40,20 @@ function efpb_om_enqueue_scripts () {
  */
 
 function efpb_mark_as_original() {
-
 	if ( ! current_user_can( 'manage_network' ) || ! check_ajax_referer( 'pressbooks-aldine-admin' ) ) {
 		return;
 	}
 
-	$blog_id = intval($_POST['book_id']);
+	//$blog_id = intval($_POST['book_id']);
+	$blog_id = intval(sanitize_key($_POST['book_id']));
 	if(!$blog_id){
 		$blog_id = "";
 	}
 	$blog_id = sanitize_text_field ($blog_id);
-	$is_original = $_POST['is_original'];
-	$is_original = sanitize_text_field ($is_original);
+	$is_original = sanitize_key($_POST['is_original']);
+	//$is_original = sanitize_text_field ($is_original);
+	
+	
 	if ( $is_original === 'true' ) {
 		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );
@@ -82,6 +84,6 @@ function efpb_add_original_column ($columns) {
 
 function efpb_render_original_column ($column, $blog_id ) {
 	if ( 'is_original' === $column && ! is_main_site( $blog_id ) ) { ?>
-		<input class="is-original" type="checkbox" name="is_original" value="1" aria-label="<?php echo esc_attr_x( 'Mark As Original Content', 'extensions-for-pressbooks' ); ?>" <?php checked( get_blog_option( $blog_id, 'efp_publisher_is_original' ), 1 ); ?> />
+		<input class="is-original" type="checkbox" name="is_original" value="1" aria-label="<?php echo esc_attr_x( 'Mark As Original Content', 'extensions-for-pressbooks' ); ?>" <?php checked( sanitize_option($blog_id,get_blog_option( $blog_id, 'efp_publisher_is_original' )), 1 ); ?> />
 	<?php }
 }
