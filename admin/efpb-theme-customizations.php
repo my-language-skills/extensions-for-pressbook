@@ -16,8 +16,8 @@ add_action("admin_menu", "add_theme_menu_item");
  function add_theme_menu_item() {
    if(current_user_can('manage_options')){
 
-     add_theme_page("EFP Customization",
-     "EFP Customization",
+     add_theme_page(__("EFP Customization",'extensions-for-pressbooks'),
+     __("EFP Customization",'extensions-for-pressbooks'),
      "manage_options",
      "theme-customizations",
      "render_theme_option_page", null, 9);
@@ -47,12 +47,11 @@ add_action("admin_menu", "add_theme_menu_item");
  	submit_button();
 ?>
   <div class="wrap">
-    <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']) { ?>
+    <?php  $settings_update_sanitized = sanitize_key($_GET['settings-updated']); if (isset($settings_update_sanitized) && $settings_update_sanitized) {?>
     <div class="notice notice-success is-dismissible">
   <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
 </div>
 <?php } ?>
  			</form>
  </div>
- <?php
- }
+ <?php }
