@@ -19,8 +19,8 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
  function efpb_add_network_settings() {
 
  	  add_submenu_page( 'settings.php',
-   'Extensions Network Settings',
-   'EFP settings',
+   __('Extensions Network Settings','extensions-for-pressbooks'),
+   __('EFP settings','extensions-for-pressbooks'),
    'manage_network_options',
    'efp-network-settings-page',
    'efp_render_network_settings');
@@ -35,6 +35,14 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
  *
  */
  function efp_render_network_settings() {
+  if ($_POST['submit'])
+  {//if sumbited the button for save settings
+    //sanitize key from POST request data
+    $tfp_uninstall_save_value = intval(sanitize_key($_POST['tfp_uninstall_save']));
+    //save button was clicked so update value of option.
+    update_option('tfp_uninstall_save',sanitize_option('tfp_uninstall_save',$tfp_uninstall_save_value));
+  }
+ 
  ?>
    <div class="wrap">
        <h1>Extensions for Pressbooks network settings</h1>
@@ -47,19 +55,6 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
             submit_button();
           ?>
 
-       <div class="wrap">
-         <!-- setting saved message -->
-         <?php
-          // update db -> if checkbox is checked tfp_uninstall_save = 1
-          if( sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']) == 1 ){
-            update_option( 'tfp_uninstall_save', 1 );
-          }
-          // update db -> if checkbox is not checked tfp_uninstall_save = 0
-          //sanitize_option( ‘tfp_uninstall_save’, $_POST[‘tfp_uninstall_save’]) == 0
-          if( sanitize_option( 'tfp_uninstall_save', $_POST['tfp_uninstall_save']) == 0 ){
-            update_option( 'tfp_uninstall_save', 0);
-          }
-          ?>
       </form>
     </div>
  <?php  }
