@@ -17,7 +17,8 @@
  //If the plugin "The SEO Framework" is not active nothing happens
  if (is_plugin_active('autodescription/autodescription.php')){
    //Get value from option DB
-   $result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
+   //$result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
+   $result_canonical_metabox = sanitize_option(null,get_blog_option(null,'efpb_canonical_metabox_enable'));
    //If checkbox is turned ON and if current book is featured
    if ( $result_canonical_metabox == 1  && book_is_a_featured2()){
      //Canonical URL = father's URL
@@ -38,7 +39,8 @@
   *
   **/
    function get_canonical_url(){
-     $result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
+     //$result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
+     $result_is_original = sanitize_option(null,get_blog_option(null, '_transient_pb_book_source_url'));
      return $result_is_original;
    }
  }
@@ -53,7 +55,8 @@
    //Book is not main site
    if(get_current_blog_id() != 1){
      //Get value from option DB
-     $result_is_original = get_blog_option(null,'efp_publisher_is_original');
+     //$result_is_original = get_blog_option(null,'efp_publisher_is_original');
+     $result_is_original = sanitize_option(null,get_blog_option(null, 'efp_publisher_is_original'));
      //If value = 1 the book is featured
      if ( $result_is_original == 1 ){
        return true;
