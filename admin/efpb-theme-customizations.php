@@ -11,16 +11,16 @@
  * @since 1.2.4 (when the file was introduced)
  */
  
-add_action("admin_menu", "add_theme_menu_item");
+add_action("admin_menu", "efpb_add_theme_menu_item");
 
- function add_theme_menu_item() {
+ function efpb_add_theme_menu_item() {
    if(current_user_can('manage_options')){
 
      add_theme_page(__("EFP Customization",'extensions-for-pressbooks'),
      __("EFP Customization",'extensions-for-pressbooks'),
      "manage_options",
      "theme-customizations",
-     "render_theme_option_page", null, 9);
+     "efpb_render_theme_option_page", null, 9);
    }
   return;
 }
@@ -31,7 +31,7 @@ add_action("admin_menu", "add_theme_menu_item");
  * @since 1.2.4 MODIFIED 1.2.5
  *
  */
- function render_theme_option_page() {
+ function efpb_render_theme_option_page() {
  ?>
  	<div class="wrap">
  			<h1>Extensions for Pressbooks Theme customization settings</h1>
