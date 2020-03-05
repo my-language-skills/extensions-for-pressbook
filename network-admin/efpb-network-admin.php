@@ -41,6 +41,8 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
     $tfp_uninstall_save_value = intval(sanitize_key($_POST['tfp_uninstall_save']));
     //save button was clicked so update value of option.
     update_option('tfp_uninstall_save',sanitize_option('tfp_uninstall_save',$tfp_uninstall_save_value));
+    //this option is used by other plugins, no significant value for this one
+    //used as complimentary feature from other plugins
   }
  
  ?>
