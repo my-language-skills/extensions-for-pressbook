@@ -40,13 +40,13 @@ function efpb_init_settings_section (){
 											'extensions_section');
 
   register_setting( 'theme-customizations-grp',
-										'efp_pbibo_metabox_enable','sanitize');
+										'efp_pbibo_metabox_enable','efpb_sanitize');
 	}
 	
 	/**
 	 * To sanitize the input of the checkbox before updating to database
 	 */
-	function sanitize($input)
+	function efpb_sanitize($input)
 	{
 		return sanitize_text_field($input && $input!='' ? $input : '');
 
@@ -75,12 +75,12 @@ function efpb_init_settings_section (){
 
 		add_settings_field(	'efpb_canonical_metabox_enable', 					// Parameter
 												__('Father canonical URL','extensions-for-pressbooks'),				  					// Title
-												'canonical_checkbox', 										// Function
+												'efpb_canonical_checkbox', 										// Function
 												'theme-customizations', 									// Page
 												'canonical_section');
 
 		register_setting( 'theme-customizations-grp',
-											'efpb_canonical_metabox_enable','sanitize');
+											'efpb_canonical_metabox_enable','efpb_sanitize');
 	}
 
 	/**
@@ -91,7 +91,7 @@ function efpb_init_settings_section (){
 	 *	@since 1.2.8
 	 *
 	**/
-	function book_is_a_featured (){
+	function efpb_book_is_a_featured (){
 		//if this is no the main site
 		if(get_current_blog_id() != 1){
 			//get value from DB
@@ -114,12 +114,12 @@ function efpb_init_settings_section (){
 	 *	@since 1.2.8
 	 *
 	**/
-	function canonical_checkbox(){
+	function efpb_canonical_checkbox(){
 		//Get value from option DB
 		//$option = get_option( 'efpb_canonical_metabox_enable' );
 		$option = sanitize_option('efpb_canonical_metabox_enable',get_option( 'efpb_canonical_metabox_enable' ));
 		//If book is featured print canonical_checkbox focusable
-		if(book_is_a_featured()){
+		if(efpb_book_is_a_featured()){
 			_e('<input name="efpb_canonical_metabox_enable" id="efpb_canonical_metabox_enable" type="checkbox" value="'.esc_attr__("1").'" class="code" ' . checked( 1, $option, false ) . ' /> '. __("Enable father's canonical URL",'extensions-for-pressbooks') .'');
 		}
 		//Else print canonical_checkbox not focusable (canonical functionality works like checkbox OFF) but the info keeps exist in the DB

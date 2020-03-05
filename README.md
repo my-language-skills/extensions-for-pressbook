@@ -97,6 +97,13 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### Future
 
 ### Changelog
+### 1.2.9
+* **ADDITIONS**
+  * Translation functions added to all Titles and Input values of the plugin.
+  * Sanitized all input from user input and database updates
+  * Escape all html attributes before updating contents on front-end
+  * All function names and actions contain the plugin prefix to prevent conflictions with other plugins
+
 ### 1.2.8
 * **ADDITIONS**
   * New blogs use default permalink (blogname)
