@@ -20,14 +20,14 @@
    //$result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
    $result_canonical_metabox = sanitize_option(null,get_blog_option(null,'efpb_canonical_metabox_enable'));
    //If checkbox is turned ON and if current book is featured
-   if ( $result_canonical_metabox == 1  && book_is_a_featured2()){
+   if ( $result_canonical_metabox == 1  && efpb_book_is_a_featured2()){
      //Canonical URL = father's URL
-     add_filter( 'the_seo_framework_rel_canonical_output', 'get_canonical_url' );
+     add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
    }
    //If book is not featured but still be a clone
-   if ( !book_is_a_featured2() && efp_is_site_clone()){
+   if ( !efpb_book_is_a_featured2() && efp_is_site_clone()){
      //Canonical URL = father's URL
-     add_filter( 'the_seo_framework_rel_canonical_output', 'get_canonical_url' );
+     add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
    }
 
   /**
@@ -38,7 +38,7 @@
   * @since             1.2.8
   *
   **/
-   function get_canonical_url(){
+   function efpb_get_canonical_url(){
      //$result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
      $result_is_original = sanitize_option(null,get_blog_option(null, '_transient_pb_book_source_url'));
      return $result_is_original;
@@ -51,7 +51,7 @@
  * @since             1.2.8
  *
  **/
- function book_is_a_featured2 (){
+ function efpb_book_is_a_featured2 (){
    //Book is not main site
    if(get_current_blog_id() != 1){
      //Get value from option DB
