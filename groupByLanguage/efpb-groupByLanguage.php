@@ -115,7 +115,7 @@ function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
 
     $meta_query = array(
         'key'   => 'pb_language',
-        'value' => translate_choice(wp_unslash( sanitize_text_field($_GET['language']) ))
+        'value' => efpb_translate_choice(wp_unslash( sanitize_text_field($_GET['language']) ))
     );
 
     if ( isset( $args['meta_query'] ) ) {
@@ -139,7 +139,7 @@ function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
 * The function that translates full name in potted name.
 */
 
-function translate_choice($args){
+function efpb_translate_choice($args){
   $translateChoice = array(
 					'non_tr' => 'Not translation',
 					'ar'     => 'Arabic',
