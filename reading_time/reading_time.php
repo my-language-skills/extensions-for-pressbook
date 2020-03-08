@@ -9,7 +9,7 @@
   } else {
   $timer = " minutes";
   }
-  $totalreadingtime = $readingtime . $timer;
+  $totalreadingtime = '   -   ' . $readingtime . $timer;
 
   return $totalreadingtime;
   }
