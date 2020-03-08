@@ -44,6 +44,9 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
     include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
     include_once plugin_dir_path( __FILE__ ) . "canonical/efpb-canonical.php";
+	  include_once plugin_dir_path( __FILE__ ) . "reading_time/reading_time.php";
+
+	  
 
 
 		//loading network settings only for multisite installation
