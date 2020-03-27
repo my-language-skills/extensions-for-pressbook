@@ -40,13 +40,14 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
 		include_once plugin_dir_path( __FILE__ ) . "original-mark/efpb-original-mark.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-theme-customizations.php";
 		include_once plugin_dir_path( __FILE__ ) . "admin/efpb-admin-settings.php";
-		
+
     include_once plugin_dir_path( __FILE__ ) . "groupByLanguage/efpb-groupByLanguage.php";
     include_once plugin_dir_path( __FILE__ ) . "post/efpb-post.php";
     include_once plugin_dir_path( __FILE__ ) . "canonical/efpb-canonical.php";
 	  include_once plugin_dir_path( __FILE__ ) . "reading_time/reading_time.php";
 
-	  
+
+
 
 
 		//loading network settings only for multisite installation
@@ -55,4 +56,8 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
 			include_once plugin_dir_path( __FILE__ ) . "post-metabox-pb_is_based_on/efpb-post-metabox-pb_is_based_on.php";
 		}
 
+    //If the plugin "Restric Content Pro" is not active nothing happens
+    if (is_plugin_active('restrict-content-pro/restrict-content-pro.php')){
+      include_once plugin_dir_path( __FILE__ ) . "rcp/efpb-rcp-registration-fields.php";
+      }
 	}
