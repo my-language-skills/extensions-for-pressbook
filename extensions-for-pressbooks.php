@@ -47,6 +47,7 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
 	  include_once plugin_dir_path( __FILE__ ) . "reading_time/efpb-reading_time.php";
     include_once plugin_dir_path( __FILE__ ) . "heartbeat/efpb-heartbeat.php";
     include_once plugin_dir_path( __FILE__ ) . "roles/efpb-roles.php";
+    include_once plugin_dir_path( __FILE__ ) . "shortcodes/efpb-shortcodes.php";
 
 
 
