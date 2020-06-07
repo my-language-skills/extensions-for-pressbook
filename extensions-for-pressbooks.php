@@ -48,19 +48,32 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
     include_once plugin_dir_path( __FILE__ ) . "heartbeat/efpb-heartbeat.php";
     include_once plugin_dir_path( __FILE__ ) . "roles/efpb-roles.php";
     include_once plugin_dir_path( __FILE__ ) . "shortcodes/efpb-shortcodes.php";
+    include_once plugin_dir_path( __FILE__ ) . "h5p/efpb-h5p.php";
 
 
-
-
-
-		//loading network settings only for multisite installation
-		if (is_multisite()){
-			include_once plugin_dir_path( __FILE__ ) . "network-admin/efpb-network-admin.php";
-			include_once plugin_dir_path( __FILE__ ) . "post-metabox-pb_is_based_on/efpb-post-metabox-pb_is_based_on.php";
-		}
+    //Multisite options
+    include_once plugin_dir_path( __FILE__ ) . "network-admin/efpb-network-admin.php";
+    include_once plugin_dir_path( __FILE__ ) . "post-metabox-pb_is_based_on/efpb-post-metabox-pb_is_based_on.php";
 
     //If the plugin "Restric Content Pro" is not active nothing happens
     if (is_plugin_active('restrict-content-pro/restrict-content-pro.php')){
       include_once plugin_dir_path( __FILE__ ) . "rcp/efpb-rcp-registration-fields.php";
       }
 	}
+
+
+
+
+
+  //Remove JQuery migrate
+  // https://www.narga.net/how-to-remove-jquery-migrate/
+
+  function remove_jquery_migrate($scripts) {
+    if (!is_admin() && isset($scripts->registered['jquery'])) { $script = $scripts->registered['jquery'];
+      if ($script->deps) { // Check whether the script has any dependencies
+        $script->deps = array_diff($script->deps, array( 'jquery-migrate' ));
+      }
+    }
+  }
+
+  add_action('wp_default_scripts', 'remove_jquery_migrate');
