@@ -1,14 +1,12 @@
 <?php
-
 /**
  * Original Mark
  *
  * Sites can be mark and later to receive special treatment (as to receive an original site sibon).
  *
- * @link URL
- *
- * @since x.x.x (when the file was introduced)
- * @package extensions-for-pressbooks
+ *	@link URL
+ *	@since 0.1 (when the file was introduced)
+ *	@package extensions-for-pressbooks
  */
 
 
@@ -23,7 +21,7 @@ add_action( 'manage_sites_custom_column', 'efpb_render_original_column', 1, 3 );
 /**
  * Summary.
  *
- * @since
+ * @since 0.1
  *
  */
 
@@ -34,7 +32,7 @@ function efpb_om_enqueue_scripts () {
 /**
  * Summary.
  *
- * @since
+ * @since 0.1
  *
  */
 
@@ -65,7 +63,7 @@ function efpb_mark_as_original() {
 /**
  * Summary.
  *
- * @since
+ * @since 0.1
  *
  */
 
@@ -77,7 +75,7 @@ function efpb_add_original_column ($columns) {
 /**
  * Summary.
  *
- * @since
+ * @since 0.1
  *
  */
 

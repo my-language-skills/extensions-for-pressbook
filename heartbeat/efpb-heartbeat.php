@@ -7,21 +7,21 @@
  * https://alvaroarrarte.com/todo-sobre-el-heartbeat-de-wordpress.
  * https://alvarofontela.com/api-heartbeat-admin-ajax-php-wordpress.
  *
- * @link              URL
- * @since             1.2.8
- * @package           extensions-for-pressbooks
+ *  @link     URL
+ *  @since    1.2.8
+ *  @package  extensions-for-pressbooks
  *
  **/
 
- /*
-  * The following code can choose the interval between calls to the heartbeat.
-  */
+/*
+ * The following code can choose the interval between calls to the heartbeat.
+ */
 
-   function modificar_heartbeat( $settings ) {
-       $settings['interval'] = 120; //Cambia a un valor que sea entre 15 - 60
-       return $settings;
-   }
-   add_filter( 'heartbeat_settings', 'modificar_heartbeat' );
+function modificar_heartbeat( $settings ) {
+  $settings['interval'] = 120; //Cambia a un valor que sea entre 15 - 60
+  return $settings;
+ }
+ add_filter( 'heartbeat_settings', 'modificar_heartbeat' );
 
 
  /*

@@ -6,20 +6,19 @@
  * This file is responsible for generating all the required elements with h5p exercises integration
  *
  *
- * @link worksheed.books4languages.com
- *
- * @since xxxx
- * @package extensions-for-pressbooks
+ *  @link worksheed.books4languages.com
+ *  @since 1.2.9
+ *  @package extensions-for-pressbooks
  */
 
 defined ("ABSPATH") or die ("Action denied!");
 
 
-// /**
-//  * Create the metabox 'h5p' for Chapter
-//  *
-//  * @since    X.0
-//  */
+/**
+  * Create the metabox 'h5p' for Chapter
+  *
+  * @since    1.2.9
+  */
 
 add_action( 'custom_metadata_manager_init_metadata', 'x_init_custom_fields' );
 
