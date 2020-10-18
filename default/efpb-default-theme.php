@@ -5,16 +5,15 @@
  *
  * New websites will use a selected default theme.
  *
- * @link		URL
- * @since 	0.1
- * @package extensions-for-pressbooks
-
+ *	@link			URL
+ *	@since		0.1
+ *	@package 	extensions-for-pressbooks
  */
 
 /**
  * Force new websites to use a specifical theme
  *
- * @since 0.1
+ *	@since	0.1
  *
  */
 

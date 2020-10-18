@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Default theme
+ * Default settings
  *
  * New websites will use default options.
  *

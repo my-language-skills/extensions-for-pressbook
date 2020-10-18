@@ -5,9 +5,9 @@
  *
  * New sites will use custom format.
  *
- *  @link https://wordpress.stackexchange.com/questions/271662/multisite-network-how-to-change-permalink-structure-programmatically-on-new-blo
- *  @since 1.0 (when the file was introduced)
- *  @package extensions-for-pressbooks
+ *  @link     https://wordpress.stackexchange.com/questions/271662/multisite-network-how-to-change-permalink-structure-programmatically-on-new-blo
+ *  @since    1.0 (when the file was introduced)
+ *  @package  extensions-for-pressbooks
  */
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Extensions for PressBooks / groupByLanguage Plugin
+ * groupByLanguage Plugin
  *
  * This file is a functionality of Extensions for PressBooks Plugin. It creates a
  * new dropdown menu in the Admin Books page and gives the possibity to show in the
