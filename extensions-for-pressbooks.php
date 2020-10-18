@@ -49,6 +49,9 @@ include_once(ABSPATH.'wp-admin/includes/plugin.php'); // bad aproach, we have to
     include_once plugin_dir_path( __FILE__ ) . "roles/efpb-roles.php";
     include_once plugin_dir_path( __FILE__ ) . "shortcodes/efpb-shortcodes.php";
     include_once plugin_dir_path( __FILE__ ) . "h5p/efpb-h5p.php";
+    include_once plugin_dir_path( __FILE__ ) . "clipboard/efpb-clipboarddata.php";
+
+
 
 
     //Multisite options
