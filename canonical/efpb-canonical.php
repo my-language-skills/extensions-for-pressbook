@@ -8,9 +8,9 @@
  * the canonical link will be the father's URL.
  * Otherwise "The SEO Framework" works normally.
  *
- * @link              URL
- * @since             1.2.8
- * @package           extensions-for-pressbooks
+ * @link URL
+ * @since 1.2.8
+ * @package extensions-for-pressbooks
  *
  **/
 
@@ -35,7 +35,7 @@
   *
   * It takes the URL from '_transient_pb_book_source_url' value
   *
-  * @since             1.2.8
+  * @since 1.2.8
   *
   **/
    function efpb_get_canonical_url(){
@@ -48,7 +48,7 @@
  /**
  *  Function: return true if book is featured else return false
  *
- * @since             1.2.8
+ * @since 1.2.8
  *
  **/
  function efpb_book_is_a_featured2 (){
