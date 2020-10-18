@@ -100,18 +100,30 @@ If you need some help with understanding on how plugin was structured, take a lo
 ### 1.2.9
 * **ADDITIONS**
   * Translation functions added to all Titles and Input values of the plugin.
-  * Sanitized all input from user input and database updates
-  * Escape all html attributes before updating contents on front-end
-  * All function names and actions contain the plugin prefix to prevent conflictions with other plugins
+  * Sanitized all input from user input and database updates.
+  * Escape all html attributes before updating contents on front-end.
+  * All function names and actions contain the plugin prefix to prevent conflictions with other plugins.
+		* Remove External Google Fonts.
+		* Remove JQuery migrate.
+		* Remove dashicons in frontend for unauthenticated users.
+		* New Clipboard data.
+		* New h5p metabox.
 
 ### 1.2.8
 * **ADDITIONS**
-  * New blogs use default permalink (blogname)
+  * New blogs use default permalink (blogname).
+		* New heartbeat defined frequency.
+		* New cannonical url integrated with The Seo Framework.
+		* New disable editing page url for non administrators.
+		* New registrations fields (RCP).
+		* New page reading time.
+		* New roles and options configuration.
+		* New blog list shortcode.
 
 ### 1.2.7
 * **REMOVED**
-  * Deregister dashicons REMOVED
-  * Unistall translation section is now in Translation for Pressbooks plugin
+  * Deregister dashicons REMOVED.
+  * Unistall translation section is now in Translation for Pressbooks plugin.
 
 #### 1.2.6
 * **ADDITIONS**
@@ -127,7 +139,7 @@ If you need some help with understanding on how plugin was structured, take a lo
    * post-edit pb_is_based_on metabox is now shown even when pb_is_based_on value is not set for the current post.
 
  * **MODIFICATIONS**
-    * Possibility to display 'pb_is_based_on' metabox on post-edit page enabled also for books with no 'pb_is_based_on' value (source books)
+    * Possibility to display 'pb_is_based_on' metabox on post-edit page enabled also for books with no 'pb_is_based_on' value (source books).
 
 * **LIST OF FILE REVISED**
    * ADDED efpb-post-metabox-pb_is_based_on.php
