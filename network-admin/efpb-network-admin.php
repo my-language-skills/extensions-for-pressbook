@@ -8,8 +8,8 @@
  *
  * @link URL
  *
- * @package extensions-for-pressbooks
  * @since 1.2.4
+ * @package extensions-for-pressbooks
  */
 
 defined ("ABSPATH") or die ("Action denied!");
@@ -17,8 +17,7 @@ defined ("ABSPATH") or die ("Action denied!");
 add_action( 'network_admin_menu', 'efpb_add_network_settings');
 
  function efpb_add_network_settings() {
-
- 	  add_submenu_page( 'settings.php',
+   add_submenu_page( 'settings.php',
    __('Extensions Network Settings','extensions-for-pressbooks'),
    __('EFP settings','extensions-for-pressbooks'),
    'manage_network_options',
@@ -30,13 +29,12 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
  * Render page sections.
  *
  * @since 1.2.4
- * MODIFIED 1.2.5
- * MODIFIED 1.2.8
+ * @since 1.2.5
+ * @since 1.2.8
  *
  */
  function efp_render_network_settings() {
-  if ($_POST['submit'])
-  {//if sumbited the button for save settings
+  if ($_POST['submit']) { //if sumbited the button for save settings
     //sanitize key from POST request data
     $tfp_uninstall_save_value = intval(sanitize_key($_POST['tfp_uninstall_save']));
     //save button was clicked so update value of option.
@@ -44,19 +42,18 @@ add_action( 'network_admin_menu', 'efpb_add_network_settings');
     //this option is used by other plugins, no significant value for this one
     //used as complimentary feature from other plugins
   }
- 
  ?>
-   <div class="wrap">
-       <h1>Extensions for Pressbooks network settings</h1>
-       <!-- form with $unistall_checkbox for tfp -->
-       <form method="post" action="" >
-         <?php
-         //add section
-        do_settings_sections("tfp-network-settings-page");
-            settings_fields("tfp-network-settings-page-grp");
-            submit_button();
-          ?>
-
-      </form>
-    </div>
- <?php  }
+<div class="wrap">
+   <h1>Extensions for Pressbooks network settings</h1>
+   <!-- form with $unistall_checkbox for tfp -->
+   <form method="post" action="" >
+     <?php
+     //add section
+    do_settings_sections("tfp-network-settings-page");
+        settings_fields("tfp-network-settings-page-grp");
+        submit_button();
+      ?>
+  </form>
+</div>
+<?php
+}

@@ -7,9 +7,8 @@
  *
  * @link URL
  *
- * @package extensions-for-pressbooks
- * @subpackage Functionality/Original mark
  * @since x.x.x (when the file was introduced)
+ * @package extensions-for-pressbooks
  */
 
 
@@ -52,8 +51,8 @@ function efpb_mark_as_original() {
 	$blog_id = sanitize_text_field ($blog_id);
 	$is_original = sanitize_key($_POST['is_original']);
 	//$is_original = sanitize_text_field ($is_original);
-	
-	
+
+
 	if ( $is_original === 'true' ) {
 		delete_blog_option( $blog_id, 'efp_publisher_is_original' );
 		update_blog_option( $blog_id, 'efp_publisher_is_original', 1 );

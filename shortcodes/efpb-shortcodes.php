@@ -4,9 +4,9 @@
  *
  * This file create new shortcodes.
  *
- * @link              URL
- * @since             1.2.8
- * @package           extensions-for-pressbooks
+ *  @link     URL
+ *  @since    1.2.8
+ *  @package  extensions-for-pressbooks
  *
  **/
 

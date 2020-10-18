@@ -8,40 +8,40 @@
  * the canonical link will be the father's URL.
  * Otherwise "The SEO Framework" works normally.
  *
- * @link URL
- * @since 1.2.8
- * @package extensions-for-pressbooks
+ *  @link URL
+ *  @since 1.2.8 (when the file was introduced)
+ *  @package extensions-for-pressbooks
  *
  **/
 
  //If the plugin "The SEO Framework" is not active nothing happens
- if (is_plugin_active('autodescription/autodescription.php')){
-   //Get value from option DB
-   //$result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
-   $result_canonical_metabox = sanitize_option(null,get_blog_option(null,'efpb_canonical_metabox_enable'));
-   //If checkbox is turned ON and if current book is featured
-   if ( $result_canonical_metabox == 1  && efpb_book_is_a_featured2()){
-     //Canonical URL = father's URL
-     add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
-   }
-   //If book is not featured but still be a clone
-   if ( !efpb_book_is_a_featured2() && efp_is_site_clone()){
-     //Canonical URL = father's URL
-     add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
-   }
+if (is_plugin_active('autodescription/autodescription.php')){
+ //Get value from option DB
+ //$result_canonical_metabox = get_blog_option(null,'efpb_canonical_metabox_enable');
+ $result_canonical_metabox = sanitize_option(null,get_blog_option(null,'efpb_canonical_metabox_enable'));
+ //If checkbox is turned ON and if current book is featured
+ if ( $result_canonical_metabox == 1  && efpb_book_is_a_featured2()){
+   //Canonical URL = father's URL
+   add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
+ }
+ //If book is not featured but still be a clone
+ if ( !efpb_book_is_a_featured2() && efp_is_site_clone()){
+   //Canonical URL = father's URL
+   add_filter( 'the_seo_framework_rel_canonical_output', 'efpb_get_canonical_url' );
+ }
 
-  /**
-  * Function: return father's canonical URL
-  *
-  * It takes the URL from '_transient_pb_book_source_url' value
-  *
-  * @since 1.2.8
-  *
-  **/
-   function efpb_get_canonical_url(){
-     //$result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
-     $result_is_original = sanitize_option(null,get_blog_option(null, '_transient_pb_book_source_url'));
-     return $result_is_original;
+/**
+* Function: return father's canonical URL
+*
+* It takes the URL from '_transient_pb_book_source_url' value
+*
+* @since 1.2.8
+*
+**/
+  function efpb_get_canonical_url(){
+   //$result_is_original = get_blog_option(null, '_transient_pb_book_source_url');
+   $result_is_original = sanitize_option(null,get_blog_option(null, '_transient_pb_book_source_url'));
+   return $result_is_original;
    }
  }
 

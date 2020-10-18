@@ -5,22 +5,20 @@
  * This file is responsible for generating EFP Customization menu slug in Apperance menu.
  * It creates blank page where other plugins can place their settings.
  *
- * @package extensions-for-pressbooks
- * @subpackage Functionality/Theme-custommizations-page
- * @since 1.2.4 (when the file was introduced)
+ *  @since    1.2.4 (when the file was introduced)
+ *  @package  extensions-for-pressbooks
  */
 
 add_action("admin_menu", "efpb_add_theme_menu_item");
 
- function efpb_add_theme_menu_item() {
-   if(current_user_can('manage_options')){
-
-     add_theme_page(__("EFP Customization",'extensions-for-pressbooks'),
-     __("EFP Customization",'extensions-for-pressbooks'),
-     "manage_options",
-     "theme-customizations",
-     "efpb_render_theme_option_page", null, 9);
-   }
+function efpb_add_theme_menu_item() {
+  if(current_user_can('manage_options')){
+    add_theme_page(__("EFP Customization",'extensions-for-pressbooks'),
+    __("EFP Customization",'extensions-for-pressbooks'),
+    "manage_options",
+    "theme-customizations",
+    "efpb_render_theme_option_page", null, 9);
+    }
   return;
 }
 
@@ -31,8 +29,7 @@ add_action("admin_menu", "efpb_add_theme_menu_item");
  * @since 1.2.5
  *
  */
- function efpb_render_theme_option_page() {
- ?>
+function efpb_render_theme_option_page() { ?>
  	<div class="wrap">
  			<h1>Extensions for Pressbooks Theme customization settings</h1>
  			<form method="post" action="options.php">
@@ -54,4 +51,5 @@ add_action("admin_menu", "efpb_add_theme_menu_item");
   <?php } ?>
  			</form>
  </div>
- <?php }
+ <?php
+}

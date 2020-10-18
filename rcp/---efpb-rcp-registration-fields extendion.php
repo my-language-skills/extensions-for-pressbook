@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * abc
+ *
+ * abc
+ *
+ * @since x.x.x (when the file was introduced)
+ * @package extensions-for-pressbooks
+ */
+
+/**
  * Example for adding a custom select field to the
  * Restrict Content Pro registration form and profile editors.
  */

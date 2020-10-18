@@ -4,9 +4,9 @@
  *
  * This file remove default functionalities that decrease the speed.
  *
- * @link              URL
- * @since             1.X
- * @package           extensions-for-pressbooks
+ *	@link			URL
+ *	@since		1.X
+ *	@package	extensions-for-pressbooks
  *
  **/
 
@@ -15,8 +15,8 @@
 /**
  * Remove External Google Fonts
  *
- * @since 1.
- * @internal fonts.gstatic.com / fonts.googleapis.com
+ *	@internal fonts.gstatic.com / fonts.googleapis.com
+ *	@since 1.
  */
 
 if ( !is_user_logged_in() ) {
@@ -41,8 +41,8 @@ add_action( 'wp_enqueue_scripts', 'remove_google_fonts_stylesheet', 100 );
 /**
  * Remove JQuery migrate
  *
- * @link https://www.narga.net/how-to-remove-jquery-migrate/
- * @since 1.
+ *	@link https://www.narga.net/how-to-remove-jquery-migrate/
+ *	@since 1.
  *
  */
 
@@ -62,7 +62,7 @@ add_action('wp_default_scripts', 'remove_jquery_migrate');
 /**
  * Remove dashicons in frontend for unauthenticated users
  *
- * @since 1.X
+ *	@since 1.X
  *
  */
 

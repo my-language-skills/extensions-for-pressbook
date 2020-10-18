@@ -5,11 +5,10 @@
  *
  * New websites will use a selected default theme.
  *
- * @link URL
- *
+ * @link		URL
+ * @since 	0.1
  * @package extensions-for-pressbooks
- * @subpackage Functionality/Defatult theme
- * @since 0.1
+
  */
 
 /**
@@ -24,7 +23,5 @@ function efpb_exp_set_default_theme () {
 	if ($def_theme->exists()){
 		switch_theme('books4languages-book-child-theme-for-pressbooks');
 	}
-
 }
-
 add_action('pressbooks_new_blog', 'efpb_exp_set_default_theme');

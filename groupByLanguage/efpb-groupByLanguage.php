@@ -6,9 +6,9 @@
  * new dropdown menu in the Admin Books page and gives the possibity to show in the
  * list only the books in a specific language (selected in the dropdown menu).
  *
- * @link              URL
- * @since             1.2.6
- * @package           extensions-for-pressbooks
+ * @link    URL
+ * @since   1.2.6
+ * @package extensions-for-pressbooks
  */
 
 /**
@@ -108,7 +108,7 @@ function efppb_add_language_dropdown_menu( $which ) {
 */
 add_filter( 'ms_sites_list_table_query_args', 'efpm_sites_with_language_choosen_in_dropdown_menu' );
 function efpm_sites_with_language_choosen_in_dropdown_menu( $args ) {
-	
+
     if ( empty( sanitize_text_field($_GET['language'] )) ) {
         return $args;
     }

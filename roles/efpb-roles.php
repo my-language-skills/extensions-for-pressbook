@@ -6,9 +6,9 @@
  * It works with new roles created with User Role Editor pro.
  * https://wordpress.stackexchange.com/questions/188863/how-to-allow-an-user-role-to-create-a-new-user-under-a-role-which-lower-than-hise
  *
- * @link              URL
- * @since             1.2.8
- * @package           extensions-for-pressbooks
+ *  @link     URL
+ *  @since    1.2.8
+ *  @package  extensions-for-pressbooks
  *
  **/
 
@@ -18,12 +18,12 @@
  */
 
 
- /**
-  * Helper function get getting roles that the user is allowed to create/edit/delete.
-  *
-  * @param   WP_User $user
-  * @return  array
-  */
+/**
+* Helper function get getting roles that the user is allowed to create/edit/delete.
+*
+* @param   WP_User $user
+* @return  array
+*/
  function wpse_188863_get_allowed_roles( $user ) {
      $allowed = array();
 

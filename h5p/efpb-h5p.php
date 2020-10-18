@@ -8,8 +8,8 @@
  *
  * @link worksheed.books4languages.com
  *
- * @package extensions-for-pressbooks/efpb-h5p
  * @since xxxx
+ * @package extensions-for-pressbooks
  */
 
 defined ("ABSPATH") or die ("Action denied!");

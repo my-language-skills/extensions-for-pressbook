@@ -4,9 +4,8 @@
  *
  * This file is responsible for generating metabox in edit post page of post_types. (pbibo = pb_is_based_on)
  *
- * @package extensions-for-pressbooks
- * @subpackage Functionality/post-metabox_pb_is_based_on
- * @since 1.2.5 (when the file was introduced)
+ *  @since 1.2.5 (when the file was introduced)
+ *  @package extensions-for-pressbooks
  */
 
 defined ("ABSPATH") or die ("Action denied!");
@@ -21,7 +20,6 @@ add_action( 'save_post', 'efp_pbibo_url_field_save', 10, 2 );
  *
  */
 function efp_init_pbibo_metabox(){
-  
   global $post;
   //$pbibo_enabled = get_option('efp_pbibo_metabox_enable' );
   $pbibo_enabled = sanitize_option('efp_pbibo_metabox_enable',get_option('efp_pbibo_metabox_enable' ));
@@ -41,7 +39,7 @@ function efp_init_pbibo_metabox(){
  */
 function efp_render_pbibo_metabox(){
   global $post;
- // if (empty(get_post_meta($post->ID, 'pb_is_based_on', true))) 
+ // if (empty(get_post_meta($post->ID, 'pb_is_based_on', true)))
   if (empty(sanitize_meta('pb_is_based_on',get_post_meta($post->ID,'pb_is_based_on',true),'url')))
   { // If pb_is_based_on URL is not set print diferent output
     $html = '<b>Current URL:</b>';
@@ -66,10 +64,10 @@ function efp_render_pbibo_metabox(){
 
   //$site_url = get_site_url();                                 // get current site URL
   $site_url = esc_url(get_site_url());
-  
+
   $site_url_parse = parse_url($site_url);                     // parse this URL
   $site_url_parse_host = $site_url_parse["host"];             // get 'host' of the url
-  
+
   // compare URLs of pb_is_based_on meta_key AND site URL
   if ($site_url_parse_host == $pbibo_url_parse_host){
     $url_to_print = $pbibo_url_parse_path;                    // If they are the same, print only URL path
