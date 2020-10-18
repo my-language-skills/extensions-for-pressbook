@@ -103,11 +103,11 @@ If you need some help with understanding on how plugin was structured, take a lo
   * Sanitized all input from user input and database updates.
   * Escape all html attributes before updating contents on front-end.
   * All function names and actions contain the plugin prefix to prevent conflictions with other plugins.
-		* Remove External Google Fonts.
-		* Remove JQuery migrate.
-		* Remove dashicons in frontend for unauthenticated users.
-		* New Clipboard data.
-		* New h5p metabox.
+  * Remove External Google Fonts.
+  * Remove JQuery migrate.
+  * Remove dashicons in frontend for unauthenticated users.
+  * New Clipboard data.
+  * New h5p metabox.
 
 ### 1.2.8
 * **ADDITIONS**
