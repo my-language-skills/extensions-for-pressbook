@@ -5,7 +5,7 @@
 * Tags: wordpress, multisite, pressbooks
 * Tested up to: WP 5.2.4
 * Tested UP:  Pressbooks 5.9.5
-* Stable tag: 1.2.8
+* Stable tag: 1.2.9
 * License:  GPL 3.0
 * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
