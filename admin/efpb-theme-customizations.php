@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Extensions for Pressbooks Theme customization settings
  *
@@ -10,7 +9,7 @@
  * @subpackage Functionality/Theme-custommizations-page
  * @since 1.2.4 (when the file was introduced)
  */
- 
+
 add_action("admin_menu", "efpb_add_theme_menu_item");
 
  function efpb_add_theme_menu_item() {
@@ -28,14 +27,14 @@ add_action("admin_menu", "efpb_add_theme_menu_item");
 /**
  * Render theme_option_page.
  *
- * @since 1.2.4 MODIFIED 1.2.5
+ * @since 1.2.4
+ * @since 1.2.5
  *
  */
  function efpb_render_theme_option_page() {
  ?>
  	<div class="wrap">
  			<h1>Extensions for Pressbooks Theme customization settings</h1>
-
  			<form method="post" action="options.php">
  <?php
   // display all sections for theme-customizations page
@@ -46,12 +45,13 @@ add_action("admin_menu", "efpb_add_theme_menu_item");
 
  	submit_button();
 ?>
-  <div class="wrap">
-    <?php  $settings_update_sanitized = sanitize_key($_GET['settings-updated']); if (isset($settings_update_sanitized) && $settings_update_sanitized) {?>
-    <div class="notice notice-success is-dismissible">
-  <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
-</div>
-<?php } ?>
+      <div class="wrap">
+        <?php  $settings_update_sanitized = sanitize_key($_GET['settings-updated']);
+        if (isset($settings_update_sanitized) && $settings_update_sanitized) {?>
+          <div class="notice notice-success is-dismissible">
+            <p><strong> <?php esc_html_e('Settings saved.', 'extensions-for-pressbooks'); ?></strong></p>
+          </div>
+  <?php } ?>
  			</form>
  </div>
  <?php }
