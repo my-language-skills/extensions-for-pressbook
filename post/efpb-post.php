@@ -40,6 +40,6 @@ function hide_permalink() {
 }
 
 function wpse_110427_hide_title() {
-  if (! current_user_can( 'manage_options' ) )
+  if (! current_user_can( 'manage_options' )  && ! $user_id === 338) // users with permision
   add_filter( 'get_sample_permalink_html', 'hide_permalink' );
 }
